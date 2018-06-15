@@ -19,7 +19,7 @@ var draw = new MapboxDraw({
 });
 map.addControl(draw, 'top-left');
 var objlayers = {};
-var queries = function () {
+var queries = function() {
   var vars = [],
     hash;
   var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
@@ -44,39 +44,42 @@ function menu(geo, objlayers) {
   var table = document.getElementById("table");
   $('#menu').empty();
   for (var i = 0; i < geo.features.length; i++) {
-    var name = geo.features[i].properties.name;
+    var name = geo.features[i].properties.sez_Zone;
     var link = document.createElement('a');
     link.href = '#';
     link.textContent = name;
     link.b = turf.bbox(geo.features[i]);
-    link.onclick = function (e) {
+    link.onclick = function(e) {
       var source = this.source;
       // map;
       map.fitBounds(this.b);
       e.preventDefault();
       e.stopPropagation();
     };
-    var row = table.insertRow(i+1);
+    var row = table.insertRow(i + 1);
     //Agregar mas colums
-    row.insertCell(0).appendChild(link);
-    row.insertCell(1).innerHTML = 'link';
+    row.insertCell(0).innerHTML = geo.features[i].properties.sez_Region;
+    row.insertCell(1).innerHTML = geo.features[i].properties.sez_Country;
+    row.insertCell(2).innerHTML = geo.features[i].properties['sez_Zone ID'];
+    row.insertCell(3).appendChild(link);
+    row.insertCell(4).innerHTML = geo.features[i].properties['sez_Size OSM (ha)'];;
   }
 }
 
 //Loading files
 function loadfile(input) {
   fr = new FileReader();
-  fr.onload = function (e) {
+  fr.onload = function(e) {
     var str = e.target.result;
     print(JSON.parse(str));
   };
   fr.readAsText(input.files[0]);
 }
 
-$(document).ready(function ($) {
+$(document).ready(function($) {
   var url = queries()['url'];
-  $.getJSON(url, function (result) {
-    setTimeout(function () {
+  $.getJSON(url, function(result) {
+    setTimeout(function() {
       print(result);
     }, 2000)
   });
@@ -84,7 +87,7 @@ $(document).ready(function ($) {
 
 function updategeo(e) {
   var data = draw.getAll();
-  data.features.forEach(function (f) {
+  data.features.forEach(function(f) {
     delete f.id;
     delete f.properties.id;
   });
