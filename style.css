@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+}
+
+#map {
+    position: absolute;
+    right: 0px;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+}
+
+.columns {
+    column-width: 50%;
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 2em;
+    grid-gap: .5em;
+}
+
+.loadFile,
+.saveFile {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 100;
+    background: white;
+    color: black;
+    padding: 6px;
+    border-radius: 4px;
+    font-family: 'Helvetica Neue';
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: none;
+    border: 2px solid #ddd;
+}
+
+.loadFile {
+    right: 150px;
+}
+
+.menurows {
+    padding: 10px;
+    max-height: 100%;
+    overflow-y: scroll;
+    height: inherit;
+    min-height: 100vh;
+}

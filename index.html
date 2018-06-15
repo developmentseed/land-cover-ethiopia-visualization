@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Checking geojson</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' type='text/css' />
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.css' rel='stylesheet' />
+    <link href='https://www.mapbox.com/base/latest/base.css' rel='stylesheet' type='text/css' />
+    <link href='style.css' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div class="grid">
+        <div>
+            <div class="menurows">
+                <table id="table">
+                    <thead>
+                        <tr>
+                            <th>Region</th>
+                            <th>Country</th>
+                            <th>Zone ID</th>
+                            <th>Zone</th>
+                            <th>link</th>
+                            <th>Area/OSM Area</th>
+                        </tr>
+                    </thead>
+                    <tbody id="menu">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="map"></div>
+    </div>
+    <a href='#' class='saveFile' id='export'>Save updated features</a>
+    <input class='loadFile' type="file" name="files[]" multiple="multiple" onchange="loadfile(this);" />
+</body>
+<script src='app.js'></script>
+</html>
