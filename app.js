@@ -43,6 +43,8 @@ map.on('draw.update', updategeo);
 function menu(geo, objlayers) {
   var table = document.getElementById("table");
   $('#menu').empty();
+  //Sort by sez_Country
+  sortObj(geo.features, 'sez_Country')
   for (var i = 0; i < geo.features.length; i++) {
     var name = geo.features[i].properties.sez_Zone;
     var link = document.createElement('a');
@@ -62,7 +64,9 @@ function menu(geo, objlayers) {
     row.insertCell(1).innerHTML = geo.features[i].properties.sez_Country;
     row.insertCell(2).innerHTML = geo.features[i].properties['sez_Zone ID'];
     row.insertCell(3).appendChild(link);
-    row.insertCell(4).innerHTML = geo.features[i].properties['sez_Size OSM (ha)'];;
+    row.insertCell(4).innerHTML = geo.features[i].properties['sez_Size (ha)'];
+    row.insertCell(5).innerHTML = geo.features[i].properties['sez_Size OSM (ha)'];
+    row.insertCell(6).innerHTML = "";
   }
 }
 
@@ -94,4 +98,18 @@ function updategeo(e) {
   var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
   document.getElementById('export').setAttribute('href', 'data:' + convertedData);
   document.getElementById('export').setAttribute('download', 'data.geojson');
+}
+
+function sortObj(list, key) {
+  function compare(a, b) {
+      a = a.properties[key];
+      b = b.properties[key];
+      var type = (typeof(a) === 'string' ||
+                  typeof(b) === 'string') ? 'string' : 'number';
+      var result;
+      if (type === 'string') result = a.localeCompare(b);
+      else result = a - b;
+      return result;
+  }
+  return list.sort(compare);
 }
