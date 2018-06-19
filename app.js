@@ -66,7 +66,6 @@ function menu(geo, objlayers) {
     row.insertCell(3).appendChild(link);
     row.insertCell(4).innerHTML = geo.features[i].properties['sez_Size (ha)'];
     row.insertCell(5).innerHTML = geo.features[i].properties['sez_Size OSM (ha)'];
-    row.insertCell(6).innerHTML = "";
   }
 }
 
