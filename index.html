@@ -48,10 +48,9 @@
   </form>
   <script>
     function confirm(formu) {
-      if ($("#entry_2").val().length == 0) {
-        alert("The text field is empty");
-      } else
+      if ($("#entry_2").val().length != 0) {
         alert('Your comment was save');
+      }   
     }
   </script>
   <script>
