@@ -70,10 +70,6 @@ function menu(geo, objlayers) {
     row.insertCell(3).appendChild(link);
     row.insertCell(4).innerHTML = geo.features[i].properties['sez_Size (ha)'];
     row.insertCell(5).innerHTML = geo.features[i].properties['sez_Size OSM (ha)'];
-<<<<<<< HEAD
-    row.insertCell(6).innerHTML = "";
-=======
->>>>>>> master
   }
 }
 
@@ -109,16 +105,6 @@ function updategeo(e) {
 
 function sortObj(list, key) {
   function compare(a, b) {
-<<<<<<< HEAD
-    a = a.properties[key];
-    b = b.properties[key];
-    var type = (typeof(a) === 'string' ||
-      typeof(b) === 'string') ? 'string' : 'number';
-    var result;
-    if (type === 'string') result = a.localeCompare(b);
-    else result = a - b;
-    return result;
-=======
       a = a.properties[key];
       b = b.properties[key];
       var type = (typeof(a) === 'string' ||
@@ -127,7 +113,6 @@ function sortObj(list, key) {
       if (type === 'string') result = a.localeCompare(b);
       else result = a - b;
       return result;
->>>>>>> master
   }
   return list.sort(compare);
 }
