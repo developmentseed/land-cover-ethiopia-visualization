@@ -51,10 +51,14 @@ function menu(geo, objlayers) {
     link.href = '#';
     link.textContent = name;
     link.b = turf.bbox(geo.features[i]);
+    link.objectId = geo.features[i].properties['@id'];
+    link.sez_name = geo.features[i].properties.sez_Zone;
+
     link.onclick = function(e) {
-      var source = this.source;
       // map;
       map.fitBounds(this.b);
+      $('#entry_1').attr('value', this.objectId);
+      $('#sez_name').text( this.sez_name);
       e.preventDefault();
       e.stopPropagation();
     };
