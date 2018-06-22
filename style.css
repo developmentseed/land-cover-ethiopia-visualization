@@ -51,3 +51,28 @@ body {
     height: inherit;
     min-height: 100vh;
 }
+
+#entry_1 {
+  display: none;
+}
+
+.form {
+    position: absolute;
+    bottom: 30px;
+    right: 0px;
+    z-index: 100;
+    background: white;
+    color: black;
+    padding: 12px;
+    border-radius: 4px;
+    font-family: 'Helvetica Neue';
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: none;
+    border: 2px solid #ddd;
+}
+
+.feedb {
+  width: 100%;
+  padding-right: 40px;
+}
