@@ -1,26 +1,20 @@
 import React, { Component } from 'react';
-import SimpleTable from './components/table'
-import Map from './components/map';
-import logo from './logo.svg';
+import SimpleTable from './components/table.js'
+import Map from './components/map.js';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import Paper from '@material-ui/core/Paper';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import _ from 'underscore';
+import { displayHeaders } from './config.js';
 import './App.css';
 import data from './polygons.json'
-
-const displayHeaders = ['@id', 'name', 'sez_Region', 'sez_Country', 'sez_Zone ID', 'sez_Size', 'boundary']
-
-
 
 class App extends Component {
 
   constructor() {
     super();
     this.state = {
-      feature:null
+      feature: null
     };
   }
 
@@ -30,7 +24,7 @@ class App extends Component {
     });
   }
   render() {
-    const {feature} = this.state;
+    const { feature } = this.state;
     console.log(feature)
     return (
       <Grid fluid>

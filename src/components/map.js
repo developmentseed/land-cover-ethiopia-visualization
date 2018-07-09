@@ -1,12 +1,10 @@
 import React from 'react';
 import mapboxgl from 'mapbox-gl';
 import bbox from '@turf/bbox';
-
-mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA';
-
+import {mapConfig} from './../config.js';
+mapboxgl.accessToken = mapConfig.accessToken
 class Application extends React.Component {
   map;
-
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -22,7 +20,7 @@ class Application extends React.Component {
     //Display map
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: 'mapbox://styles/mapbox/streets-v9',
+      style: mapConfig.style,
       center: [lng, lat],
       zoom
     });
@@ -47,7 +45,6 @@ class Application extends React.Component {
     });
   }
 
-
   componentDidUpdate() {
     const { feature } = this.props;
     const bound = bbox(feature);
@@ -56,7 +53,7 @@ class Application extends React.Component {
 
   render() {
     return (
-      <div ref={el => this.mapContainer = el} className="absolute top right left bottom mapContent" />
+      <div ref={el => this.mapContainer = el} className='mapContent' />
     );
   }
 }
