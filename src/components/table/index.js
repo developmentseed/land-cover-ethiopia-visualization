@@ -11,6 +11,7 @@ import uuidv1 from 'uuid/v1';
 import './styles.css';
 
 class SimpleTable extends Component {
+
     renderHeaders = (headers) => {
         const cells = (hds) => (
             hds.map(header => (
@@ -26,19 +27,22 @@ class SimpleTable extends Component {
         )
     };
 
-    renderData = (headers, data) => {
-        console.log(headers)
-        const renderColumn = (hds, properties) => (
+
+    renderData = () => {
+        const { headers, data, onRowClick } = this.props;
+        const renderColumn = (hds, feature) => (
             hds.map(header => (
-                <TableCell key={uuidv1()}>{properties[header]}</TableCell>
+                <TableCell key={uuidv1()}>
+                    <div > {feature.properties[header]} </div>
+                </TableCell>
             ))
         );
         return (
             <TableBody>
-                {data.map(properties => {
+                {data.features.map(feature => {
                     return (
-                        <TableRow key={uuidv1()}>
-                            {renderColumn(headers, properties)}
+                        <TableRow key={uuidv1()} onClick={() => onRowClick()} >
+                            {renderColumn(headers, feature)}
                         </TableRow>
                     );
                 })}
@@ -46,22 +50,22 @@ class SimpleTable extends Component {
     }
 
     render() {
-        const { data, headers } = this.props;
-        console.log(data);
-        console.log(headers);
+        const { onRowClick, data, headers } = this.props;
         return (
-            <Paper className='root'>
+            // <Paper className='root'>
                 <Table className='table'>
                     {this.renderHeaders(headers)}
-                    {this.renderData(headers, data)}
+                    {this.renderData()}
                 </Table>
-            </Paper>
+            // </Paper>
         );
     }
 }
 
 SimpleTable.propTypes = {
+    data: PropTypes.object.isRequired,
     headers: PropTypes.array.isRequired,
+    onRowClick: PropTypes.func
 };
 
 export default SimpleTable;

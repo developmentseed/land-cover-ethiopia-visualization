@@ -46,6 +46,10 @@ const geoProperties = [{
 
 const displayHeaders = ['@id', 'name', 'sez_Region', 'sez_Country', 'sez_Zone ID', 'sez_Size', 'boundary']
 class App extends Component {
+
+  handleRowClick = () => {
+    console.log("handleRowClick")
+  }
   render() {
     return (
       <Grid fluid>
@@ -63,14 +67,17 @@ class App extends Component {
         <Row>
           <Col xs={12} md={6}>
             <div className='tableContent'>
-              <SimpleTable data={geoProperties} headers={_.intersection(_.keys(geoProperties[0]), displayHeaders)}></SimpleTable>
+              <SimpleTable
+                data={data}
+                headers={displayHeaders}
+                onRowClick={this.handleRowClick}
+              ></SimpleTable>
             </div>
           </Col>
           <Col xs={12} md={6}>
-            <Paper elevation={5}>
-            <div id='app'></div>
-              <Map data={data}></Map>
-            </Paper>
+            <div className='mapContent'>
+              <Map data={data} ></Map>
+            </div>
           </Col>
         </Row>
       </Grid>

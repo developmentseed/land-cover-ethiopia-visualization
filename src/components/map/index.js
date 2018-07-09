@@ -4,7 +4,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmb
 
 class Application extends React.Component {
   map;
-
+  
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -25,15 +25,6 @@ class Application extends React.Component {
       center: [lng, lat],
       zoom
     });
-    // Display the coordinates
-    // this.map.on('move', () => {
-    //   const { lng, lat } = this.map.getCenter();
-    //   this.setState({
-    //     lng: lng.toFixed(4),
-    //     lat: lat.toFixed(4),
-    //     zoom: this.smap.getZoom().toFixed(2)
-    //   });
-    // });
 
     //Load the comming source
     this.map.on('load', () => {
@@ -56,16 +47,10 @@ class Application extends React.Component {
   }
 
   render() {
-    const { lng, lat, zoom } = this.state;
+    // const { lng, lat, zoom } = this.state;
     return (
-      <div>
-        <div className="inline-block absolute top left mt12 ml12 bg-darken75 color-white z1 py6 px12 round-full txt-s txt-bold">
-          <div>{`Longitude: ${lng} Latitude: ${lat} Zoom: ${zoom}`}</div>
-        </div>
-        <div ref={el => this.mapContainer = el} className="absolute top right left bottom" />
-      </div>
+        <div ref={el => this.mapContainer = el} className="absolute top right left bottom mapContent"/>
     );
   }
 }
-
 export default Application;
