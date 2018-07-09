@@ -1,0 +1,40 @@
+.tableContent{
+    overflow: auto;
+}
+
+.headerBackground{
+    background: #555555;
+}
+/* .featureRow{
+}
+
+.featureHeaderRow::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+.featureRow:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+ 
+.itemHeaders, .item {
+    float: left;
+    width: auto;
+    padding: 15px;
+    width: 100px;
+    border-left: 1px solid #555555;
+    border-right: 1px solid #555555;
+
+}
+
+.itemHeaders{
+    background: #999999;
+}
+.item{
+    border-left: 1px solid #555555;
+    border-right: 1px solid #555555;
+} */
