@@ -41,7 +41,7 @@ class SimpleTable extends Component {
             <TableBody>
                 {data.features.map(feature => {
                     return (
-                        <TableRow key={uuidv1()} onClick={() => onRowClick()} >
+                        <TableRow key={uuidv1()} onClick={() => onRowClick(feature)} >
                             {renderColumn(headers, feature)}
                         </TableRow>
                     );
@@ -53,10 +53,10 @@ class SimpleTable extends Component {
         const { onRowClick, data, headers } = this.props;
         return (
             // <Paper className='root'>
-                <Table className='table'>
-                    {this.renderHeaders(headers)}
-                    {this.renderData()}
-                </Table>
+            <Table className='table'>
+                {this.renderHeaders(headers)}
+                {this.renderData()}
+            </Table>
             // </Paper>
         );
     }
