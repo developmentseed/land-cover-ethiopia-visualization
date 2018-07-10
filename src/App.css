@@ -6,14 +6,13 @@ body { margin:0; padding:0; }
 }
 
 .tableContent{
-  max-height:calc(100vh - 64px);;
   max-height:calc(100vh - 64px);
-  /* height: 100% !important;  */
+  max-height:calc(100vh - 64px);
+  min-height:calc(100vh - 64px);
+  min-height:calc(100vh - 64px);
   margin: 0px; 
   padding: 0px;
   overflow-y: auto;
-  /* background: #00ff00; */
-  /* height: 1000px; */
 }
 
 .tableContent > table > tbody > tr > td  {
@@ -26,6 +25,8 @@ body { margin:0; padding:0; }
 .mapContent {
   max-height:100% !important; 
   max-height:100vh !important;
+  min-height:100% !important; 
+  min-height:100vh !important;
   height: 100%;
   margin: 0px; 
   padding: 0px;
