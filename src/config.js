@@ -1,5 +1,5 @@
 export const mapConfig = {
-    accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA',
-    style: 'mapbox://styles/mapbox/streets-v9',
+    accessToken: 'pk.eyJ1IjoiZGV2c2VlZCIsImEiOiJnUi1mbkVvIn0.018aLhX0Mb0tdtaT2QNe2Q',
+    style: 'mapbox://styles/devseed/cjfwup8c518vc2slcclpfw3sp',
 };
 export const displayHeaders = ['@id', 'name', 'sez_Region', 'sez_Country', 'sez_Zone ID', 'sez_Size', 'boundary'];

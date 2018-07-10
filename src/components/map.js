@@ -1,7 +1,7 @@
 import React from 'react';
 import mapboxgl from 'mapbox-gl';
-import bbox from '@turf/bbox';
-import {mapConfig} from './../config.js';
+import {bbox,center, featureCollection} from '@turf/turf';
+import { mapConfig } from './../config.js';
 mapboxgl.accessToken = mapConfig.accessToken
 class Application extends React.Component {
   map;
@@ -42,13 +42,22 @@ class Application extends React.Component {
           'fill-opacity': 0.8
         }
       });
+
     });
   }
 
   componentDidUpdate() {
     const { feature } = this.props;
     const bound = bbox(feature);
-    this.map.fitBounds(bound);
+    this.map.fitBounds(bound,{padding:20});
+    //create a popup
+    const centerCoords = center(featureCollection([feature]));
+    // console.log(centerCoords.geometry.coo);
+
+    // new mapboxgl.Popup()
+    //     .setLngLat(centerCoords)
+    //     .setHTML(feature.properties)
+    //     .addTo(this.map);
   }
 
   render() {

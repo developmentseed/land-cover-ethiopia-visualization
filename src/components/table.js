@@ -52,12 +52,10 @@ class SimpleTable extends Component {
     render() {
         const { onRowClick, data, headers } = this.props;
         return (
-            // <Paper className='root'>
             <Table className='table'>
                 {this.renderHeaders(headers)}
                 {this.renderData()}
             </Table>
-            // </Paper>
         );
     }
 }
