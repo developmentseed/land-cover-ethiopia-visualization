@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import SimpleTable from './components/table.js'
-import Map from './components/map.js';
-import FeatureDetails from './components/featureDetails';
+import FCTable from './components/FCTable'
+import Map from './components/Map.js';
+import FeatureDetails from './components/FeatureDetails';
+import ImportFromFile from './components/ImportFromFile'
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -11,11 +12,14 @@ import './App.css';
 import data from './polygons.json'
 
 class App extends Component {
-
   constructor() {
     super();
     this.state = {
-      feature: null
+      feature: null,
+      data: {
+        type: 'FeatureCollection',
+        features: []
+      }
     };
   }
 
@@ -24,37 +28,35 @@ class App extends Component {
       feature
     });
   }
+
+  handleFeatureCollection = (data) => {
+    this.setState({
+      data,
+      feature:null
+    })
+  }
+
+
   render() {
-    const { feature } = this.state;
-    console.log(feature)
+    const { feature, data } = this.state;
     return (
       <Grid fluid>
-        {/* <Row>
-          <Col xs={12}>
+        <Row>
+          <Col xs={12} md={4}>
             <AppBar position="static" color="default">
               <Toolbar>
                 <Typography variant="title" color="inherit">
                   Geojson Checking
               </Typography>
-              </Toolbar>
-            </AppBar>
-          </Col>
-        </Row> */}
-        <Row>
-          <Col xs={12} md={4}>
-          <AppBar position="static" color="default">
-              <Toolbar>
-                <Typography variant="title" color="inherit">
-                  Geojson Checking
-              </Typography>
+                <ImportFromFile handleFeatureCollection={this.handleFeatureCollection}></ImportFromFile>
               </Toolbar>
             </AppBar>
             <div className='tableContent'>
-              <SimpleTable
+              <FCTable
                 data={data}
                 headers={displayHeaders}
                 onRowClick={this.handleRowClick}
-              ></SimpleTable>
+              ></FCTable>
             </div>
           </Col>
           <Col xs={12} md={8}>

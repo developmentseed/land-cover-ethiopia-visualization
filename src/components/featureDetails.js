@@ -9,58 +9,30 @@ import uuidv1 from 'uuid/v1';
 import './styles.css';
 
 class FeatureDetails extends Component {
-
-    // renderHeaders = (headers) => {
-    //     const cells = (hds) => (
-    //         hds.map(header => (
-    //             <TableCell key={uuidv1()}>{header}</TableCell>
-    //         ))
-    //     );
-    //     return (
-    //         <TableHead className='headerBackground'>
-    //             <TableRow>
-    //                 {cells(headers)}
-    //             </TableRow>
-    //         </TableHead>
-    //     )
-    // };
-
-
     diplayProperties = (feature) => {
         const props = (keys, properties) => (
             keys.map(key => (
-                // <ListItem button divider>
-                // <ListItemText>
                 <div className='rowPropertie'>
-                <span>{key}</span>: <strong>{properties[key]}</strong>
+                <div className='columnKeys'>{key}:</div><div className='columnValues'>{properties[key]}</div>
                 </div>
-                // </ListItemText>
-            //   </ListItem>
             ))
         )
         return (
-            <List component="nav">
+            <div>
+                <h3>Properties</h3>
             {props(_.keys(feature.properties), feature.properties)}
-            </List>
-        )
+            </div>
+        );
     }
 
     render() {
         const { feature } = this.props;
-        console.log(feature)
         return (
-          
             <div className='featureDetails'>
                 {feature ? this.diplayProperties(feature) : <h1>select</h1>}
-               
-
             </div>
-
-
         );
     }
 }
-
-
 
 export default FeatureDetails;

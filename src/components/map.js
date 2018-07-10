@@ -1,6 +1,6 @@
 import React from 'react';
 import mapboxgl from 'mapbox-gl';
-import {bbox,center, featureCollection} from '@turf/turf';
+import { bbox, center, featureCollection } from '@turf/turf';
 import { mapConfig } from './../config.js';
 mapboxgl.accessToken = mapConfig.accessToken
 class Application extends React.Component {
@@ -8,10 +8,44 @@ class Application extends React.Component {
   constructor(props: Props) {
     super(props);
     this.state = {
-      lng: 5,
-      lat: 34,
+      lng: 0,
+      lat: 0,
       zoom: 1.5
     };
+  }
+
+  loadFConMap = (data) => {
+    if (this.map.getSource('geoFeatures')) {
+      this.map.getSource('geoFeatures').setData(data);
+    } else {
+      this.map.addSource('geoFeatures', {
+        type: 'geojson',
+        data
+      });
+    }
+    this.map.addLayer({
+      id: 'polygons',
+      type: 'fill',
+      source: 'geoFeatures',
+      'paint': {
+        'fill-color': '#3fff00',
+        'fill-opacity': .1
+      }
+    });
+    this.map.addLayer({
+      id: 'lines',
+      type: 'line',
+      source: 'geoFeatures',
+      layout: {
+        'line-cap': 'round',
+        'line-join': 'round'
+      },
+      paint: {
+        'line-color': '#3fff00',
+        'line-width': 2,
+        'line-opacity': .8
+      }
+    });
   }
 
   componentDidMount() {
@@ -25,39 +59,23 @@ class Application extends React.Component {
       zoom
     });
 
-    //Load the comming source
+    //Load the data
     this.map.on('load', () => {
-      this.map.addSource('geoFeatures', {
-        type: 'geojson',
-        data
-      });
-
-      this.map.addLayer({
-        id: 'countries',
-        type: 'fill',
-        source: 'geoFeatures',
-        'layout': {},
-        'paint': {
-          'fill-color': '#088',
-          'fill-opacity': 0.8
-        }
-      });
-
+      this.loadFConMap(data);
     });
   }
 
   componentDidUpdate() {
-    const { feature } = this.props;
-    const bound = bbox(feature);
-    this.map.fitBounds(bound,{padding:20});
-    //create a popup
-    const centerCoords = center(featureCollection([feature]));
-    // console.log(centerCoords.geometry.coo);
-
-    // new mapboxgl.Popup()
-    //     .setLngLat(centerCoords)
-    //     .setHTML(feature.properties)
-    //     .addTo(this.map);
+    const { feature, data } = this.props;
+    //zoom the feature
+    if (feature) {
+      const bound = bbox(feature);
+      this.map.fitBounds(bound);
+    }
+    // display the layer
+    if(data){
+      this.loadFConMap(data);
+    }
   }
 
   render() {

@@ -10,7 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import uuidv1 from 'uuid/v1';
 import './styles.css';
 
-class SimpleTable extends Component {
+class FCTable extends Component {
 
     renderHeaders = (headers) => {
         const cells = (hds) => (
@@ -60,10 +60,10 @@ class SimpleTable extends Component {
     }
 }
 
-SimpleTable.propTypes = {
+FCTable.propTypes = {
     data: PropTypes.object.isRequired,
     headers: PropTypes.array.isRequired,
     onRowClick: PropTypes.func
 };
 
-export default SimpleTable;
+export default FCTable;
