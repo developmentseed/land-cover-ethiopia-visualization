@@ -23,7 +23,7 @@ class FeatureDetails extends Component {
         const { feature } = this.props;
         return (
             <div className='featureDetails'>
-                {feature ? this.diplayProperties(feature) : <h1>select</h1>}
+                {/* {feature ? this.diplayProperties(feature) : <h1>select</h1>} */}
             </div>
         );
     }
