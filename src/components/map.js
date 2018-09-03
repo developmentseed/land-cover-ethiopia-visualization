@@ -3,7 +3,7 @@ import mapboxgl from 'mapbox-gl';
 import { bbox, center, featureCollection } from '@turf/turf';
 import { mapConfig } from './../config.js';
 mapboxgl.accessToken = mapConfig.accessToken
-class Application extends React.Component {
+class ApplicationMap extends React.Component {
   map;
   constructor(props: Props) {
     super(props);
@@ -47,7 +47,7 @@ class Application extends React.Component {
       }
     });
   }
-
+  //is invoked immediately after a component is mounted (inserted into the tree). Initialization that requires DOM nodes should go here.
   componentDidMount() {
     const { lng, lat, zoom } = this.state;
     const { data } = this.props;
@@ -64,7 +64,7 @@ class Application extends React.Component {
       this.loadFConMap(data);
     });
   }
-
+  // Una vez cargado el mapas
   componentDidUpdate() {
     const { feature, data } = this.props;
     //zoom the feature
@@ -84,4 +84,4 @@ class Application extends React.Component {
     );
   }
 }
-export default Application;
+export default ApplicationMap;

@@ -9,7 +9,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { displayHeaders } from './config.js';
 import './App.css';
-import data from './polygons.json'
 
 class App extends Component {
   constructor() {
@@ -31,8 +30,8 @@ class App extends Component {
 
   handleFeatureCollection = (data) => {
     this.setState({
-      data,
-      feature:null
+      data: data, //Feture collection
+      feature: null
     })
   }
 
@@ -53,7 +52,7 @@ class App extends Component {
             </AppBar>
             <div className='tableContent'>
               <FCTable
-                data={data}
+                data={data} //this is passing ther Feture collection
                 headers={displayHeaders}
                 onRowClick={this.handleRowClick}
               ></FCTable>
