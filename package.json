@@ -7,6 +7,7 @@
     "@turf/turf": "^5.1.6",
     "axios": "^0.18.0",
     "convert-units": "^2.3.4",
+    "mapbox-gl": "^0.48.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
