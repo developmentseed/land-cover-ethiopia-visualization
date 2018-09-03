@@ -1,6 +1,6 @@
 import React from 'react';
 import mapboxgl from 'mapbox-gl';
-import { bbox, featureCollection, centroid } from '@turf/turf';
+import { bbox, center, featureCollection } from '@turf/turf';
 import { mapConfig } from './../config.js';
 mapboxgl.accessToken = mapConfig.accessToken
 class Application extends React.Component {
@@ -18,78 +18,34 @@ class Application extends React.Component {
     if (this.map.getSource('geoFeatures')) {
       this.map.getSource('geoFeatures').setData(data);
     } else {
-      // Sources
       this.map.addSource('geoFeatures', {
         type: 'geojson',
         data
       });
-
-      this.map.addSource('geoFeatures-highlight', {
-        type: 'geojson',
-        data: featureCollection([])
-      });
-
-      this.map.addSource('geoFeatures-labels', {
-        type: 'geojson',
-        data: featureCollection([])
-      });
-
-      // Layers
-      this.map.addLayer({
-        id: 'polygons',
-        type: 'fill',
-        source: 'geoFeatures',
-        'paint': {
-          'fill-color': '#d7fcc4',
-          'fill-opacity': .1
-        }
-      });
-      this.map.addLayer({
-        id: 'lines',
-        type: 'line',
-        source: 'geoFeatures',
-        layout: {
-          'line-cap': 'round',
-          'line-join': 'round'
-        },
-        paint: {
-          'line-color': '#d7fcc4',
-          'line-width': 2,
-          'line-opacity': .8
-        }
-      });
-
-      this.map.addLayer({
-        id: 'lines-highlight',
-        type: 'line',
-        source: 'geoFeatures-highlight',
-        layout: {
-          'line-cap': 'round',
-          'line-join': 'round'
-        },
-        paint: {
-          'line-color': '#eeff00',
-          'line-width': 10,
-          'line-opacity': .4
-        }
-      });
-
-      this.map.addLayer({
-        "id": "points",
-        "type": "symbol",
-        "source": 'geoFeatures-labels',
-        "layout": {
-          "text-field": "{WOREDANAME}",
-          "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-          "text-offset": [0, 0.6],
-          "text-anchor": "top",
-          "text-size": 15
-        },
-        "paint": {
-          "text-color": "#eeff00"
-        }
-      });
     }
+    this.map.addLayer({
+      id: 'polygons',
+      type: 'fill',
+      source: 'geoFeatures',
+      'paint': {
+        'fill-color': '#3fff00',
+        'fill-opacity': .1
+      }
+    });
+    this.map.addLayer({
+      id: 'lines',
+      type: 'line',
+      source: 'geoFeatures',
+      layout: {
+        'line-cap': 'round',
+        'line-join': 'round'
+      },
+      paint: {
+        'line-color': '#3fff00',
+        'line-width': 2,
+        'line-opacity': .8
+      }
+    });
   }
 
   componentDidMount() {
@@ -115,12 +71,9 @@ class Application extends React.Component {
     if (feature) {
       const bound = bbox(feature);
       this.map.fitBounds(bound);
-      this.map.getSource('geoFeatures-highlight').setData(featureCollection([feature]));
-      this.map.getSource('geoFeatures-labels').setData(featureCollection([centroid(feature, feature.properties)]));
-
     }
     // display the layer
-    if (data) {
+    if(data){
       this.loadFConMap(data);
     }
   }
