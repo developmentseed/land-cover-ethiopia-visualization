@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import FCTable from './components/FCTable'
-import Map from './components/Map.js';
-import FeatureDetails from './components/FeatureDetails';
-import ImportFromFile from './components/ImportFromFile'
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+
+// Local Components
+import FCTable from './components/FCTable'
+import Map from './components/Map.js';
+import FeatureDetails from './components/FeatureDetails';
+import ImportFromFile from './components/ImportFromFile'
 import { propertiesToDisplay } from './config.js';
 import './App.css';
 
@@ -35,7 +37,6 @@ class App extends Component {
     })
   }
 
-
   render() {
     const { feature, data } = this.state;
     return (
@@ -54,7 +55,7 @@ class App extends Component {
               <FCTable
                 data={data} //this is passing ther Feture collection
                 propertiesToDisplay={propertiesToDisplay}
-                onRowClick={this.handleRowClick}
+                // onRowClick={this.handleRowClick}
               ></FCTable>
             </div>
           </Col>
@@ -70,3 +71,5 @@ class App extends Component {
   }
 }
 export default App;
+
+

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 import PropTypes from 'prop-types';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -8,8 +9,22 @@ import TableRow from '@material-ui/core/TableRow';
 import uuidv1 from 'uuid/v1';
 import _ from 'underscore';
 import './styles.css';
+import { selectFeature } from "../actions/index";
 
-class FCTable extends Component {
+const mapDispatchToProps = dispatch => {
+    return {
+        selectFeature: feature => dispatch(selectFeature(feature))
+    };
+};
+
+class ConnectedFCTable extends Component {
+
+    featureSelected = (feature) => {
+        console.log(feature)
+        console.log('Clicked!');
+        this.props.selectFeature(feature);
+    }
+
     renderHeaders = (propertiesToDisplay) => {
         const cells = (hds) => (
             hds.map(header => (
@@ -26,8 +41,8 @@ class FCTable extends Component {
     };
 
 
-    renderData = () => {
-        const { propertiesToDisplay, data, onRowClick } = this.props;
+    renderBodyRows = () => {
+        const { propertiesToDisplay, data } = this.props;
         const headers = _.keys(propertiesToDisplay);
         const renderColumn = (hds, feature) => (
             hds.map(header => (
@@ -41,7 +56,7 @@ class FCTable extends Component {
             <TableBody>
                 {data.features.map(feature => {
                     return (
-                        <TableRow key={uuidv1()} onClick={() => onRowClick(feature)} >
+                        <TableRow key={uuidv1()} onClick={() => this.featureSelected(feature)} >
                             {renderColumn(headers, feature)}
                         </TableRow>
                     );
@@ -54,16 +69,17 @@ class FCTable extends Component {
         return (
             <Table className='table'>
                 {this.renderHeaders(propertiesToDisplay)}
-                {this.renderData()}
+                {this.renderBodyRows()}
             </Table>
         );
     }
 }
 
+const FCTable = connect(null, mapDispatchToProps)(ConnectedFCTable);
+
 FCTable.propTypes = {
     data: PropTypes.object.isRequired,
-    propertiesToDisplay: PropTypes.object.isRequired,
-    onRowClick: PropTypes.func
+    propertiesToDisplay: PropTypes.object.isRequired
 };
 
 export default FCTable;

@@ -1,42 +1,24 @@
 import React, { Component } from 'react';
 import _ from 'underscore';
-import './styles.css';
+import { connect } from "react-redux";
 import uuidv1 from 'uuid/v1';
-//styless
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+//styless
+import './styles.css';
 
-class FeatureDetails extends Component {
-    // diplayProperties = (feature) => {
-    //     const props = (keys, properties) => (
-    //         keys.map(key => (
-    //             <div className='rowPropertie'>
-    //             <div className='columnKeys'>{key}:</div><div className='columnValues'>{properties[key]}</div>
-    //             </div>
-    //         ))
-    //     )
-    //     return (
-    //         <div>
-    //             <h3>Properties</h3>
-    //         {props(_.keys(feature.properties), feature.properties)}
-    //         </div>
-    //     );
-    // }
+const mapStateToProps = state => {
+    return { feature: state.feature };
+};
 
-
-
+class ConnectedFeatureDetails extends Component {
     diplayProperties = (feature) => {
-
         const renderInvestor = (investor) => {
-            console.log(investor)
             return (
                 <Card>
                     <CardContent>
-              
                         <Typography  component="h4">
                             <strong>{investor.investor_name}</strong>
                         </Typography>
@@ -75,13 +57,14 @@ class FeatureDetails extends Component {
     }
 
     render() {
-        const { feature } = this.props;
+        const feature = this.props.feature; //the feature is coming from redux, once it will be updated the render will trigger again 
         return (
             <div className='featureDetails'>
-                {feature ? this.diplayProperties(feature) : <h3>:</h3>}
+            {_.isEmpty(feature) ?<div></div> : this.diplayProperties(feature)}
             </div>
         );
     }
 }
 
+const FeatureDetails = connect(mapStateToProps)(ConnectedFeatureDetails);
 export default FeatureDetails;
