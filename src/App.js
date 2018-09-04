@@ -7,7 +7,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { displayHeaders } from './config.js';
+import { propertiesToDisplay } from './config.js';
 import './App.css';
 
 class App extends Component {
@@ -53,7 +53,7 @@ class App extends Component {
             <div className='tableContent'>
               <FCTable
                 data={data} //this is passing ther Feture collection
-                headers={displayHeaders}
+                propertiesToDisplay={propertiesToDisplay}
                 onRowClick={this.handleRowClick}
               ></FCTable>
             </div>

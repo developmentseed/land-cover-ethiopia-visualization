@@ -6,11 +6,11 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import uuidv1 from 'uuid/v1';
+import _ from 'underscore';
 import './styles.css';
 
 class FCTable extends Component {
-
-    renderHeaders = (headers) => {
+    renderHeaders = (propertiesToDisplay) => {
         const cells = (hds) => (
             hds.map(header => (
                 <TableCell key={uuidv1()}>{header}</TableCell>
@@ -19,7 +19,7 @@ class FCTable extends Component {
         return (
             <TableHead className='headerBackground'>
                 <TableRow>
-                    {cells(headers)}
+                    {cells(_.values(propertiesToDisplay))}
                 </TableRow>
             </TableHead>
         )
@@ -27,7 +27,8 @@ class FCTable extends Component {
 
 
     renderData = () => {
-        const { headers, data, onRowClick } = this.props;
+        const { propertiesToDisplay, data, onRowClick } = this.props;
+        const headers = _.keys(propertiesToDisplay);
         const renderColumn = (hds, feature) => (
             hds.map(header => (
                 <TableCell key={uuidv1()}>
@@ -35,6 +36,7 @@ class FCTable extends Component {
                 </TableCell>
             ))
         );
+
         return (
             <TableBody>
                 {data.features.map(feature => {
@@ -48,10 +50,10 @@ class FCTable extends Component {
     }
 
     render() {
-        const { onRowClick, data, headers } = this.props;
+        const { propertiesToDisplay } = this.props;
         return (
             <Table className='table'>
-                {this.renderHeaders(headers)}
+                {this.renderHeaders(propertiesToDisplay)}
                 {this.renderData()}
             </Table>
         );
@@ -60,7 +62,7 @@ class FCTable extends Component {
 
 FCTable.propTypes = {
     data: PropTypes.object.isRequired,
-    headers: PropTypes.array.isRequired,
+    propertiesToDisplay: PropTypes.object.isRequired,
     onRowClick: PropTypes.func
 };
 

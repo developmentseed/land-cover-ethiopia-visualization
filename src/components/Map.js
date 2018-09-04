@@ -43,7 +43,7 @@ class ApplicationMap extends React.Component {
         type: 'fill',
         source: 'geoFeatures',
         'paint': {
-          'fill-color': '#d7fcc4',
+          'fill-color': '#68ff95',
           'fill-opacity': .1
         }
       });
@@ -57,7 +57,7 @@ class ApplicationMap extends React.Component {
           'line-join': 'round'
         },
         paint: {
-          'line-color': '#d7fcc4',
+          'line-color': '#68ff95',
           'line-width': 2,
           'line-opacity': .8
         }
