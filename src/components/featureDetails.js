@@ -1,77 +1,26 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
 import _ from 'underscore';
-import './styles.css';
 import uuidv1 from 'uuid/v1';
-//styless
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-
+import './styles.css';
 
 class FeatureDetails extends Component {
-    // diplayProperties = (feature) => {
-    //     const props = (keys, properties) => (
-    //         keys.map(key => (
-    //             <div className='rowPropertie'>
-    //             <div className='columnKeys'>{key}:</div><div className='columnValues'>{properties[key]}</div>
-    //             </div>
-    //         ))
-    //     )
-    //     return (
-    //         <div>
-    //             <h3>Properties</h3>
-    //         {props(_.keys(feature.properties), feature.properties)}
-    //         </div>
-    //     );
-    // }
-
-
-
     diplayProperties = (feature) => {
-
-        const renderInvestor = (investor) => {
-            console.log(investor)
-            return (
-                <Card>
-                    <CardContent>
-              
-                        <Typography  component="h4">
-                           {investor.investor_name}
-                        </Typography>
-                    
-                                  
-                        <Typography color="textSecondary">
-                                  {investor.production_size}
-                        </Typography>
-
-                        <Typography>
-                          <span>Intended size</span> <strong>{investor.intended_size}</strong> 
-                        </Typography>
-
-                        <Typography  color="textSecondary">
-                        {investor.contract_size}
-                         </Typography>
-
-                        <Typography color="textSecondary">
-                        {investor.crop}
-                        </Typography>
-                    </CardContent>
-                </Card>
-            );
-        }
-
+        const props = (keys, properties) => (
+            keys.map(key => (
+                <div className='rowPropertie'>
+                <div className='columnKeys'>{key}:</div><div className='columnValues'>{properties[key]}</div>
+                </div>
+            ))
+        )
         return (
             <div>
-                <h3>Investors</h3>
-                {feature.properties.investors.map(investor => {
-                    return (
-                        <div key={uuidv1()} >
-                            {renderInvestor(investor)}
-                        </div>
-                    );
-                })}
+                <h3>Properties</h3>
+            {props(_.keys(feature.properties), feature.properties)}
             </div>
         );
     }
@@ -80,7 +29,7 @@ class FeatureDetails extends Component {
         const { feature } = this.props;
         return (
             <div className='featureDetails'>
-                {feature ? this.diplayProperties(feature) : <h3>:</h3>}
+                {feature ? this.diplayProperties(feature) : <h1>select</h1>}
             </div>
         );
     }
