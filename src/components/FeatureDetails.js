@@ -38,30 +38,28 @@ class FeatureDetails extends Component {
                     <CardContent>
               
                         <Typography  component="h4">
-                           {investor.investor_name}
-                        </Typography>
-                    
-                                  
-                        <Typography color="textSecondary">
-                                  {investor.production_size}
+                            <strong>{investor.investor_name}</strong>
                         </Typography>
 
                         <Typography>
-                          <span>Intended size</span> <strong>{investor.intended_size}</strong> 
+                            <span>Intended size: </span>{investor.intended_size}
                         </Typography>
 
-                        <Typography  color="textSecondary">
-                        {investor.contract_size}
+                        <Typography>
+                            <span>Contract size: </span>{investor.contract_size}
                          </Typography>
 
-                        <Typography color="textSecondary">
-                        {investor.crop}
+                        <Typography>
+                            <span>Production size: </span>{investor.production_size}
+                        </Typography>
+
+                        <Typography>
+                        <span>Crops: </span>{investor.crop}
                         </Typography>
                     </CardContent>
                 </Card>
             );
         }
-
         return (
             <div>
                 <h3>Investors</h3>
