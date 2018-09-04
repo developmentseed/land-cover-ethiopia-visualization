@@ -37,11 +37,13 @@ body { margin:0; padding:0; }
   top: 0px;
   right: 10px;
   z-index: 999999;
-  width: 200px;
-  height: auto;
+  width: 350px;
+  height: 800px;
   background:  #ffffff;
   font-size: 11px;
   padding: 10px;
+  overflow-y: auto;
+
 }
 
 .rowPropertie{

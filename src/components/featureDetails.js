@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import _ from 'underscore';
 import './styles.css';
+import uuidv1 from 'uuid/v1';
+//styless
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+
 
 class FeatureDetails extends Component {
     // diplayProperties = (feature) => {
@@ -23,31 +31,47 @@ class FeatureDetails extends Component {
 
     diplayProperties = (feature) => {
 
-        const displayProps = (properties) => {
-            console.log(properties)
-            // _.keys(feature.properties),
-
+        const renderInvestor = (investor) => {
+            console.log(investor)
             return (
-                <div>
-                    <strong>
-                        {properties.WOREDANAME}
-                    </strong>
+                <Card>
+                    <CardContent>
+              
+                        <Typography  component="h4">
+                           {investor.investor_name}
+                        </Typography>
                     
-                    <div>
-                        <span>Total area Inversores: </span>{properties.area_ha}
-                    </div>
-                    <div>
-                        <span>Total area OSM : </span>{properties.area_total_farms}
-                    </div>
+                                  
+                        <Typography color="textSecondary">
+                                  {investor.production_size}
+                        </Typography>
 
-                </div>
-                );
+                        <Typography>
+                          <span>Intended size</span> <strong>{investor.intended_size}</strong> 
+                        </Typography>
+
+                        <Typography  color="textSecondary">
+                        {investor.contract_size}
+                         </Typography>
+
+                        <Typography color="textSecondary">
+                        {investor.crop}
+                        </Typography>
+                    </CardContent>
+                </Card>
+            );
         }
 
         return (
             <div>
-                {/* <h3>Properties</h3> */}
-                {displayProps(feature.properties)}
+                <h3>Investors</h3>
+                {feature.properties.investors.map(investor => {
+                    return (
+                        <div key={uuidv1()} >
+                            {renderInvestor(investor)}
+                        </div>
+                    );
+                })}
             </div>
         );
     }
