@@ -1,0 +1,84 @@
+body { margin:0; padding:0; }
+
+.col-xs-12{
+  margin: 0px;
+  padding: 0px;
+}
+
+.tableContent{
+  max-height:calc(100vh - 64px);
+  max-height:calc(100vh - 64px);
+  min-height:calc(100vh - 64px);
+  min-height:calc(100vh - 64px);
+  margin: 0px; 
+  padding: 0px;
+  overflow-y: auto;
+}
+
+.tableContent > table > tbody > tr > td  {
+  cursor: pointer;
+}
+
+.tableContent > table > tbody > tr:hover  {
+  background: #f4f3c3;
+}
+.mapContent {
+  max-height:100% !important; 
+  max-height:100vh !important;
+  min-height:100% !important; 
+  min-height:100vh !important;
+  height: 100%;
+  margin: 0px; 
+  padding: 0px;
+}
+
+.featureDetails{
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  z-index: 999999;
+  width: 350px;
+  height: 300px;
+  background:  #ffffff;
+  font-size: 11px;
+  padding: 10px;
+  overflow-y: auto;
+
+}
+
+.rowPropertie{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-top : 1px solid #bbbbbb;
+  display: flex;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.columnKeys{
+  width: 10px;
+  min-width: 10px;
+  font-weight: bold;
+  /* background: lightblue; */
+}
+
+  /* Just so it's visible */
+@media(max-width:48em){
+  .tableContent{
+      height: 200px;
+      max-height: 200px;
+  }
+  .mapContent {
+    height: 500px;
+    max-height: 500px;
+  }
+}
+
+.headerBackground{
+  background: #e0d96f;
+}
+.table{
+  height: 100%; 
+  margin: 0px;
+   padding: 0px;
+  max-height: 100%;
+}
