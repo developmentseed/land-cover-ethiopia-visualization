@@ -64,7 +64,7 @@ export const farmLandsStylePolygon = {
         url: 'mapbox://devseed.avjzyvlo'
     },
     'paint': {
-        'fill-color': '#00ff2e',
+        'fill-color': '#28e6dc',
         'fill-opacity': .2
     }
 };
@@ -82,8 +82,8 @@ export const farmLandsStyleLine = {
         'line-join': 'round'
     },
     paint: {
-        'line-color': '#00ff2e',
-        'line-width': 2,
+        'line-color': '#40edd6',
+        'line-width': 1,
         'line-opacity': .8
     }
 };
