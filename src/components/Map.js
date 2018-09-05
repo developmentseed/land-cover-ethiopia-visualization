@@ -5,10 +5,10 @@ import { connect } from "react-redux";
 import { bbox, centroid, featureCollection } from '@turf/turf';
 import _ from 'underscore';
 import { mapConfig } from './../config';
-import { polygonStyle, LineStyle, LineStyleHighlight, textStyle, farmLandsStyle } from './../constants/mapStyle';
+import { polygonStyle, LineStyle, LineStyleHighlight, textStyle, farmLandsStyleLine,farmLandsStylePolygon } from './../constants/mapStyle';
+import { rasterLayersToDisplay } from './../config';
+
 mapboxgl.accessToken = mapConfig.accessToken
-
-
 
 class ConnectedMap extends React.Component {
   map;
@@ -60,19 +60,36 @@ class ConnectedMap extends React.Component {
 
       //Layers
       // this.map.addLayer(sentinelStyle,'polygon');
-
       this.map.addLayer(polygonStyle);
       this.map.addLayer(LineStyle);
       this.map.addLayer(LineStyleHighlight);
       this.map.addLayer(textStyle);
-      // this.map.addLayer(farmLandsStyle);
+      this.map.addLayer(farmLandsStyleLine);
+      this.map.addLayer(farmLandsStylePolygon);
 
+      for (let i = 0; i < rasterLayersToDisplay.length; i++) {
+        const layer = rasterLayersToDisplay[i];
+        this.map.addLayer({
+          'id': layer.id,
+          'type': 'raster',
+          'source': {
+            'type': 'raster',
+            'tiles': [
+              layer.source
+            ],
+            'tileSize': 256
+          },
+          'paint': {}
+        }, 'polygons');
+        if (!layer.status) {
+          this.map.setLayoutProperty(layer.id, 'visibility', 'none');
+        }
+      }
     }
   }
-
-
+  
   componentDidUpdate() {
-    const { activeLayers, feature, data } = this.props;
+    const { layerSelected, feature, data } = this.props;
     //zoom the feature, because the feature was clicked on the table
     if (!_.isEmpty(feature)) {
       const bound = bbox(feature);
@@ -85,8 +102,13 @@ class ConnectedMap extends React.Component {
     if (data) {
       this.loadStyle(data);
     }
-    console.log('mapppppppppp')
-    console.log(activeLayers);
+    if (!_.isEmpty(layerSelected)) {
+      if (layerSelected.status) {
+        this.map.setLayoutProperty(layerSelected.id, 'visibility', 'visible');
+      } else {
+        this.map.setLayoutProperty(layerSelected.id, 'visibility', 'none');
+      }
+    }
   }
 
   render() {
@@ -99,7 +121,7 @@ class ConnectedMap extends React.Component {
 const mapStateToProps = state => {
   return {
     feature: state.feature,
-    activeLayers: state.activeLayers
+    layerSelected: state.layerSelected
   };
 };
 

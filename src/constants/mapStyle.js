@@ -4,7 +4,7 @@ export const polygonStyle = {
     type: 'fill',
     source: 'geoFeatures',
     'paint': {
-        'fill-color': '#68ff95',
+        'fill-color': '#ffffff',
         'fill-opacity': .1
     }
 };
@@ -18,9 +18,9 @@ export const LineStyle = {
         'line-join': 'round'
     },
     paint: {
-        'line-color': '#68ff95',
-        'line-width': 2,
-        'line-opacity': .8
+        'line-color': '#ffffff',
+        'line-width': 1,
+        'line-opacity': .7
     }
 };
 
@@ -40,7 +40,7 @@ export const LineStyleHighlight = {
 };
 
 export const textStyle = {
-    "id": "points",
+    "id": "text",
     "type": "symbol",
     "source": 'geoFeatures-labels',
     "layout": {
@@ -57,12 +57,47 @@ export const textStyle = {
 
 
 
-export const farmLandsStyle ={
-    'id': 'farmLands',
+// export const farmLandsStyle = {
+//     'id': 'farmLands',
+//     'type': 'line',
+//     "source-layer": "finalConsiderFarms-1x895y",
+//     'source': {
+//         type: 'vector',
+//         url: 'mapbox://devseed.avjzyvlo'
+//     },
+//     layout: {
+//         'line-cap': 'round',
+//         'line-join': 'round'
+//     },
+//     paint: {
+//         'line-color': '#693bbb',
+//         'line-width': 2,
+//         'line-opacity': .8
+//     }
+// };
+
+
+export const farmLandsStylePolygon = {
+    'id': 'farmLandsPolygon',
     'type': 'fill',
+    "source-layer": "finalConsiderFarms-1x895y",
     'source': {
         type: 'vector',
-        url: 'mapbox://styles/devseed/cjlpcpcq97yxz2rk4evjc8wri'
+        url: 'mapbox://devseed.avjzyvlo'
+    },
+    'paint': {
+        'fill-color': '#693bbb',
+        'fill-opacity': .2
+    }
+};
+
+export const farmLandsStyleLine = {
+    'id': 'farmLandsLine',
+    'type': 'line',
+    "source-layer": "finalConsiderFarms-1x895y",
+    'source': {
+        type: 'vector',
+        url: 'mapbox://devseed.avjzyvlo'
     },
     layout: {
         'line-cap': 'round',
@@ -74,16 +109,3 @@ export const farmLandsStyle ={
         'line-opacity': .8
     }
 };
-
-// export const sentinelStyle={
-//     'id': 'sentinel',
-//     'type': 'raster',
-//     'source': {
-//         'type': 'raster',
-//         'tiles': [
-//             'https://earthengine.googleapis.com/map/e53ebb9f25ad927569bc68bad05c4787/{z}/{x}/{y}?token=1801c48dd6accf17b8834e75d473a300'
-//         ],
-//         'tileSize': 256
-//     },
-//     'paint': {}
-// }

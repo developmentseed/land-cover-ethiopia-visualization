@@ -18,15 +18,12 @@ class ConnectedMenuLayers extends Component {
         this.state = rasterLayersToDisplay;
     }
 
-    // componentDidUpdate() {
-    //     console.log('update')
-    // }
     layerSelectedActive = (rasterLayer) => {
         rasterLayer.status = true;
         const updateLayer = {};
         updateLayer[rasterLayer.id] = rasterLayer;
         this.setState(Object.assign(this.state, updateLayer));
-        this.props.selectLayer(updateLayer);
+        this.props.selectLayer(rasterLayer);
     }
 
     layerSelectedDeactivate = (rasterLayer) => {
@@ -34,7 +31,7 @@ class ConnectedMenuLayers extends Component {
         const updateLayer = {};
         updateLayer[rasterLayer.id] = rasterLayer;
         this.setState(Object.assign(this.state, updateLayer));
-        this.props.selectLayer(updateLayer);
+        this.props.selectLayer(rasterLayer);
     }
 
     renderLayerMenu = () => {
@@ -47,7 +44,7 @@ class ConnectedMenuLayers extends Component {
         );
         return (
             <div>
-                {menuList(_.values(rasterLayersToDisplay))}
+                {menuList(rasterLayersToDisplay)}
             </div>
         )
     }

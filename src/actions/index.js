@@ -6,9 +6,9 @@ export const selectFeature = feature => (
     }
 );
 
-export const selectLayer = activeLayers => (
+export const selectLayer = layerToDisplay => (
     {
         type: SELECT_LAYERS,
-        payload: activeLayers
+        payload: layerToDisplay
     }
 );

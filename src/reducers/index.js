@@ -3,7 +3,7 @@ import _ from 'underscore';
 
 const initialState = {
   feature: {},
-  activeLayers: []
+  layerSelected: {}
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -11,11 +11,7 @@ const rootReducer = (state = initialState, action) => {
     case SELECT_FEATURE:
       return { ...state, feature: action.payload };
     case SELECT_LAYERS:
-      const key = _.keys(action.payload)[0];
-      const value = _.values(action.payload)[0];
-      const newObjState = {};
-      newObjState[key] = value
-      return Object.assign({}, state, { activeLayers: newObjState });
+      return { ...state, layerSelected: Object.assign({}, action.payload) };
     default:
       return state;
   }
