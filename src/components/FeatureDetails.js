@@ -20,35 +20,40 @@ class ConnectedFeatureDetails extends Component {
                             <strong>{investor.investor_name}</strong>
                         </Typography>
 
-                        <Typography>
-                            <span>Intended size: </span>{investor.intended_size}
+                        <Typography variant="caption">
+                            <span>Intended size: </span><strong>{investor.intended_size}</strong>
                         </Typography>
 
-                        <Typography>
-                            <span>Contract size: </span>{investor.contract_size}
+                        <Typography variant="caption" >
+                            <span>Contract size: </span><strong>{investor.contract_size}</strong>
                         </Typography>
 
-                        <Typography>
-                            <span>Production size: </span>{investor.production_size}
+                        <Typography variant="caption" >
+                            <span>Production size: </span><strong>{investor.production_size}</strong>
                         </Typography>
 
-                        <Typography>
-                            <span>Crops: </span>{investor.crop}
+                        <Typography variant="caption" >
+                            <span>Crops: </span><strong>{investor.crop}</strong>
                         </Typography>
                     </CardContent>
                 </Card>
             );
         }
+
+        const numInvestors = feature.properties.investors.length;
         return (
             <div>
-                <h3>Investors</h3>
-                {feature.properties.investors.map(investor => {
-                    return (
-                        <div key={uuidv1()} >
-                            {renderInvestor(investor)}
-                        </div>
-                    );
-                })}
+                <div className="headerDetails">
+                    Investors in {feature.properties.woreda}
+                </div>
+                {!numInvestors ? <div>There are no investors in this region!</div> :
+                    feature.properties.investors.map(investor => {
+                        return (
+                            <div key={uuidv1()} >
+                                {renderInvestor(investor)}
+                            </div>
+                        );
+                    })}
             </div>
         );
     }

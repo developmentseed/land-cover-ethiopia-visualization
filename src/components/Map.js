@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { bbox, centroid, featureCollection } from '@turf/turf';
 import _ from 'underscore';
 import { mapConfig } from './../config';
-import { polygonStyle, LineStyle, LineStyleHighlight, textStyle } from './../constants/MapStyle';
+import { polygonStyle, LineStyle, LineStyleHighlight, textStyle } from './../constants/mapStyle';
 mapboxgl.accessToken = mapConfig.accessToken
 
 class ConnectedMap extends React.Component {

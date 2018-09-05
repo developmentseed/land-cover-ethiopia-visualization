@@ -10,3 +10,4 @@ export const propertiesToDisplay = {
     "number_farms_OSM": "Num mapped farms",
     "total_farms_area_OSM": "Area Mapped in OSM"
 };
+export const appTitle = 'Ethiopia woredas - Investors'
