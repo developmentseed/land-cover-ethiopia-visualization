@@ -6,9 +6,6 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
-//styless
-import './styles.css';
-
 const mapStateToProps = state => {
     return { feature: state.feature };
 };
@@ -19,7 +16,7 @@ class ConnectedFeatureDetails extends Component {
             return (
                 <Card>
                     <CardContent>
-                        <Typography  component="h4">
+                        <Typography component="h4">
                             <strong>{investor.investor_name}</strong>
                         </Typography>
 
@@ -29,14 +26,14 @@ class ConnectedFeatureDetails extends Component {
 
                         <Typography>
                             <span>Contract size: </span>{investor.contract_size}
-                         </Typography>
+                        </Typography>
 
                         <Typography>
                             <span>Production size: </span>{investor.production_size}
                         </Typography>
 
                         <Typography>
-                        <span>Crops: </span>{investor.crop}
+                            <span>Crops: </span>{investor.crop}
                         </Typography>
                     </CardContent>
                 </Card>
@@ -60,7 +57,7 @@ class ConnectedFeatureDetails extends Component {
         const feature = this.props.feature; //the feature is coming from redux, once it will be updated the render will trigger again 
         return (
             <div className='featureDetails'>
-            {_.isEmpty(feature) ?<div></div> : this.diplayProperties(feature)}
+                {_.isEmpty(feature) ? <div></div> : this.diplayProperties(feature)}
             </div>
         );
     }

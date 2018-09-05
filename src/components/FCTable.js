@@ -8,7 +8,6 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import uuidv1 from 'uuid/v1';
 import _ from 'underscore';
-import './styles.css';
 import { selectFeature } from "../actions/index";
 
 const mapDispatchToProps = dispatch => {
@@ -20,8 +19,6 @@ const mapDispatchToProps = dispatch => {
 class ConnectedFCTable extends Component {
 
     featureSelected = (feature) => {
-        console.log(feature)
-        console.log('Clicked!');
         this.props.selectFeature(feature);
     }
 
@@ -39,7 +36,6 @@ class ConnectedFCTable extends Component {
             </TableHead>
         )
     };
-
 
     renderBodyRows = () => {
         const { propertiesToDisplay, data } = this.props;

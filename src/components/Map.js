@@ -1,9 +1,14 @@
 import React from 'react';
 import mapboxgl from 'mapbox-gl';
+import PropTypes from 'prop-types'
+import { connect } from "react-redux";
 import { bbox, centroid, featureCollection } from '@turf/turf';
+import _ from 'underscore';
+
 import { mapConfig } from './../config.js';
 mapboxgl.accessToken = mapConfig.accessToken
-class ApplicationMap extends React.Component {
+
+class ConnectedMap extends React.Component {
   map;
   constructor(props: Props) {
     super(props);
@@ -13,6 +18,24 @@ class ApplicationMap extends React.Component {
       zoom: 1.5
     };
   }
+
+  componentDidMount() {
+    const { lng, lat, zoom } = this.state;
+    const { data } = this.props;
+    //Display map
+    this.map = new mapboxgl.Map({
+      container: this.mapContainer,
+      style: mapConfig.style,
+      center: [lng, lat],
+      zoom
+    });
+
+    //Load the data
+    this.map.on('load', () => {
+      this.loadFConMap(data);
+    });
+  }
+
 
   loadFConMap = (data) => {
     if (this.map.getSource('geoFeatures')) {
@@ -83,7 +106,7 @@ class ApplicationMap extends React.Component {
         "type": "symbol",
         "source": 'geoFeatures-labels',
         "layout": {
-          "text-field": "{WOREDANAME}",
+          "text-field": "{woreda}",
           "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
           "text-offset": [0, 0.6],
           "text-anchor": "top",
@@ -95,32 +118,17 @@ class ApplicationMap extends React.Component {
       });
     }
   }
-  //is invoked immediately after a component is mounted (inserted into the tree). Initialization that requires DOM nodes should go here.
-  componentDidMount() {
-    const { lng, lat, zoom } = this.state;
-    const { data } = this.props;
-    //Display map
-    this.map = new mapboxgl.Map({
-      container: this.mapContainer,
-      style: mapConfig.style,
-      center: [lng, lat],
-      zoom
-    });
 
-    //Load the data
-    this.map.on('load', () => {
-      this.loadFConMap(data);
-    });
-  }
-  // Una vez cargado el mapas
+
   componentDidUpdate() {
     const { feature, data } = this.props;
     //zoom the feature, because the feature was clicked on the table
-    if (feature) {
+    if (!_.isEmpty(feature)) {
       const bound = bbox(feature);
       this.map.fitBounds(bound);
       this.map.getSource('geoFeatures-highlight').setData(featureCollection([feature]));
-      let point = centroid(feature, feature.properties );
+      let point = centroid(feature, feature.properties);
+      console.log(featureCollection([point]))
       this.map.getSource('geoFeatures-labels').setData(featureCollection([point]));
     }
     // display the layer
@@ -135,4 +143,15 @@ class ApplicationMap extends React.Component {
     );
   }
 }
-export default ApplicationMap;
+
+const mapStateToProps = state => {
+  return { feature: state.feature };
+};
+
+const Map = connect(mapStateToProps)(ConnectedMap);
+
+Map.propTypes = {
+  data: PropTypes.object.isRequired
+};
+
+export default Map;

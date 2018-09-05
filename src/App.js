@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import FCTable from './components/FCTable'
 import Map from './components/Map.js';
 import FeatureDetails from './components/FeatureDetails';
-import ImportFromFile from './components/ImportFromFile'
+import ImportFromFile from './components/ImportFromFile';
 import { propertiesToDisplay } from './config.js';
 import './App.css';
 
@@ -61,9 +61,9 @@ class App extends Component {
           </Col>
           <Col xs={12} md={8}>
             <div className='mapContent'>
-              <Map data={data} feature={feature}></Map>
+              <Map data={data}></Map>
             </div>
-            <FeatureDetails feature={feature}></FeatureDetails>
+            <FeatureDetails ></FeatureDetails>
           </Col>
         </Row>
       </Grid>
