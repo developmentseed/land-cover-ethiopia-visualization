@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 import { connect } from "react-redux";
 import { bbox, centroid, featureCollection } from '@turf/turf';
 import _ from 'underscore';
-
-import { mapConfig } from './../config.js';
+import { mapConfig } from './../config';
+import { polygonStyle, LineStyle, LineStyleHighlight, textStyle } from './../constants/MapStyle';
 mapboxgl.accessToken = mapConfig.accessToken
 
 class ConnectedMap extends React.Component {
@@ -32,12 +32,11 @@ class ConnectedMap extends React.Component {
 
     //Load the data
     this.map.on('load', () => {
-      this.loadFConMap(data);
+      this.loadStyle(data);
     });
   }
 
-
-  loadFConMap = (data) => {
+  loadStyle = (data) => {
     if (this.map.getSource('geoFeatures')) {
       this.map.getSource('geoFeatures').setData(data);
     } else {
@@ -54,68 +53,14 @@ class ConnectedMap extends React.Component {
 
       this.map.addSource('geoFeatures-labels', {
         type: 'geojson',
-        data: {
-          "type": "FeatureCollection",
-          "features": []
-        }
+        data: featureCollection([])
       });
 
       //Layers
-      this.map.addLayer({
-        id: 'polygons',
-        type: 'fill',
-        source: 'geoFeatures',
-        'paint': {
-          'fill-color': '#68ff95',
-          'fill-opacity': .1
-        }
-      });
-
-      this.map.addLayer({
-        id: 'lines',
-        type: 'line',
-        source: 'geoFeatures',
-        layout: {
-          'line-cap': 'round',
-          'line-join': 'round'
-        },
-        paint: {
-          'line-color': '#68ff95',
-          'line-width': 2,
-          'line-opacity': .8
-        }
-      });
-
-      this.map.addLayer({
-        id: 'lines-highlight',
-        type: 'line',
-        source: 'geoFeatures-highlight',
-        layout: {
-          'line-cap': 'round',
-          'line-join': 'round'
-        },
-        paint: {
-          'line-color': '#eeff00',
-          'line-width': 10,
-          'line-opacity': .4
-        }
-      });
-
-      this.map.addLayer({
-        "id": "points",
-        "type": "symbol",
-        "source": 'geoFeatures-labels',
-        "layout": {
-          "text-field": "{woreda}",
-          "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-          "text-offset": [0, 0.6],
-          "text-anchor": "top",
-          "text-size": 15
-        },
-        "paint": {
-          "text-color": "#eeff00"
-        }
-      });
+      this.map.addLayer(polygonStyle);
+      this.map.addLayer(LineStyle);
+      this.map.addLayer(LineStyleHighlight);
+      this.map.addLayer(textStyle);
     }
   }
 
@@ -128,12 +73,11 @@ class ConnectedMap extends React.Component {
       this.map.fitBounds(bound);
       this.map.getSource('geoFeatures-highlight').setData(featureCollection([feature]));
       let point = centroid(feature, feature.properties);
-      console.log(featureCollection([point]))
       this.map.getSource('geoFeatures-labels').setData(featureCollection([point]));
     }
     // display the layer
     if (data) {
-      this.loadFConMap(data);
+      this.loadStyle(data);
     }
   }
 
