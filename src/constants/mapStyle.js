@@ -55,28 +55,6 @@ export const textStyle = {
     }
 };
 
-
-
-// export const farmLandsStyle = {
-//     'id': 'farmLands',
-//     'type': 'line',
-//     "source-layer": "finalConsiderFarms-1x895y",
-//     'source': {
-//         type: 'vector',
-//         url: 'mapbox://devseed.avjzyvlo'
-//     },
-//     layout: {
-//         'line-cap': 'round',
-//         'line-join': 'round'
-//     },
-//     paint: {
-//         'line-color': '#693bbb',
-//         'line-width': 2,
-//         'line-opacity': .8
-//     }
-// };
-
-
 export const farmLandsStylePolygon = {
     'id': 'farmLandsPolygon',
     'type': 'fill',
@@ -86,7 +64,7 @@ export const farmLandsStylePolygon = {
         url: 'mapbox://devseed.avjzyvlo'
     },
     'paint': {
-        'fill-color': '#693bbb',
+        'fill-color': '#00ff2e',
         'fill-opacity': .2
     }
 };
@@ -104,7 +82,7 @@ export const farmLandsStyleLine = {
         'line-join': 'round'
     },
     paint: {
-        'line-color': '#693bbb',
+        'line-color': '#00ff2e',
         'line-width': 2,
         'line-opacity': .8
     }

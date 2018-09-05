@@ -50,7 +50,7 @@ body {
   top: 0px;
   right: 10px;
   z-index: 999999;
-  width: 350px;
+  width: 260px;
   height: auto;
   max-height: calc(100vh - 40px);
   background: #ffffff;
@@ -130,8 +130,8 @@ body {
   background: #fff;
   position: absolute;
   z-index: 1;
-  top: 10px;
-  left: 10px;
+  top: 2px;
+  right: 275px;
   border-radius: 3px;
   width: 120px;
   border: 1px solid rgba(0,0,0,0.4);
@@ -160,10 +160,10 @@ body {
 }
 
 #menu a.active {
-  background-color: #3887be;
+  background-color: #e5ce1d;
   color: #ffffff;
 }
 
 #menu a.active:hover {
-  background: #3074a4;
+  background: #e5ce1d;
 }
