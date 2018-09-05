@@ -5,17 +5,19 @@ import { connect } from "react-redux";
 import { bbox, centroid, featureCollection } from '@turf/turf';
 import _ from 'underscore';
 import { mapConfig } from './../config';
-import { polygonStyle, LineStyle, LineStyleHighlight, textStyle } from './../constants/mapStyle';
+import { polygonStyle, LineStyle, LineStyleHighlight, textStyle, farmLandsStyle } from './../constants/mapStyle';
 mapboxgl.accessToken = mapConfig.accessToken
+
+
 
 class ConnectedMap extends React.Component {
   map;
   constructor(props: Props) {
     super(props);
     this.state = {
-      lng: 0,
-      lat: 0,
-      zoom: 1.5
+      lng: 40.354,
+      lat: 8.391,
+      zoom: 5
     };
   }
 
@@ -57,16 +59,20 @@ class ConnectedMap extends React.Component {
       });
 
       //Layers
+      // this.map.addLayer(sentinelStyle,'polygon');
+
       this.map.addLayer(polygonStyle);
       this.map.addLayer(LineStyle);
       this.map.addLayer(LineStyleHighlight);
       this.map.addLayer(textStyle);
+      // this.map.addLayer(farmLandsStyle);
+
     }
   }
 
 
   componentDidUpdate() {
-    const { feature, data } = this.props;
+    const { activeLayers, feature, data } = this.props;
     //zoom the feature, because the feature was clicked on the table
     if (!_.isEmpty(feature)) {
       const bound = bbox(feature);
@@ -79,6 +85,8 @@ class ConnectedMap extends React.Component {
     if (data) {
       this.loadStyle(data);
     }
+    console.log('mapppppppppp')
+    console.log(activeLayers);
   }
 
   render() {
@@ -89,7 +97,10 @@ class ConnectedMap extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { feature: state.feature };
+  return {
+    feature: state.feature,
+    activeLayers: state.activeLayers
+  };
 };
 
 const Map = connect(mapStateToProps)(ConnectedMap);

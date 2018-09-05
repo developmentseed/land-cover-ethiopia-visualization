@@ -54,3 +54,36 @@ export const textStyle = {
         "text-color": "#eeff00"
     }
 };
+
+
+
+export const farmLandsStyle ={
+    'id': 'farmLands',
+    'type': 'fill',
+    'source': {
+        type: 'vector',
+        url: 'mapbox://styles/devseed/cjlpcpcq97yxz2rk4evjc8wri'
+    },
+    layout: {
+        'line-cap': 'round',
+        'line-join': 'round'
+    },
+    paint: {
+        'line-color': '#693bbb',
+        'line-width': 2,
+        'line-opacity': .8
+    }
+};
+
+// export const sentinelStyle={
+//     'id': 'sentinel',
+//     'type': 'raster',
+//     'source': {
+//         'type': 'raster',
+//         'tiles': [
+//             'https://earthengine.googleapis.com/map/e53ebb9f25ad927569bc68bad05c4787/{z}/{x}/{y}?token=1801c48dd6accf17b8834e75d473a300'
+//         ],
+//         'tileSize': 256
+//     },
+//     'paint': {}
+// }

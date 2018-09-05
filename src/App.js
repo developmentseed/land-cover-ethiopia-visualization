@@ -9,7 +9,9 @@ import axios from 'axios';
 import FCTable from './components/FCTable'
 import Map from './components/Map.js';
 import FeatureDetails from './components/FeatureDetails';
-import ImportFromFile from './components/ImportFromFile';
+// import ImportFromFile from './components/ImportFromFile';
+import MenuLayers from './components/MenuLayers';
+
 import { propertiesToDisplay, appTitle } from './config.js';
 import './App.css';
 
@@ -73,6 +75,8 @@ class App extends Component {
             <div className='mapContent'>
               <Map data={data}></Map>
             </div>
+            <MenuLayers />
+
             <FeatureDetails ></FeatureDetails>
           </Col>
         </Row>
