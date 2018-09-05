@@ -50,7 +50,7 @@ body {
   top: 0px;
   right: 10px;
   z-index: 999999;
-  width: 350px;
+  width: 260px;
   height: auto;
   max-height: calc(100vh - 40px);
   background: #ffffff;
@@ -121,4 +121,49 @@ body {
     padding-top: 5px !important;
     padding-right: 10px !important;
   }
+}
+
+
+/* Menu to hide and how Layer */
+
+#menu {
+  background: #fff;
+  position: absolute;
+  z-index: 1;
+  top: 2px;
+  right: 275px;
+  border-radius: 3px;
+  width: 120px;
+  border: 1px solid rgba(0,0,0,0.4);
+  font-family: 'Open Sans', sans-serif;
+}
+
+#menu a {
+  font-size: 13px;
+  color: #404040;
+  display: block;
+  margin: 0;
+  padding: 0;
+  padding: 10px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,0,0,0.25);
+  text-align: center;
+}
+
+#menu a:last-child {
+  border: none;
+}
+
+#menu a:hover {
+  background-color: #f8f8f8;
+  color: #404040;
+}
+
+#menu a.active {
+  background-color: #e5ce1d;
+  color: #ffffff;
+}
+
+#menu a.active:hover {
+  background: #e5ce1d;
 }
