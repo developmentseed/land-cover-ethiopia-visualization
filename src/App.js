@@ -35,7 +35,7 @@ class App extends Component {
 
   handleFeatureCollection = (data) => {
     this.setState({
-      data: data, //Feture collection
+      data: data, 
       feature: null
     })
   }
@@ -44,7 +44,7 @@ class App extends Component {
     axios.get(`https://gist.githubusercontent.com/karitotp/298a3193dc27b67518a0f1b84600f523/raw/ec9b4ea58504387c0f33ecf6876f95f6248f8139/woredas_investors.geojson`)
       .then(res => {
         this.setState({
-          data: res.data, //Feture collection
+          data: res.data,
           feature: null
         })
       })
@@ -66,7 +66,7 @@ class App extends Component {
             </AppBar>
             <div className='tableContent'>
               <FCTable
-                data={data} //this is passing ther Feture collection
+                data={data}
                 propertiesToDisplay={propertiesToDisplay}
               ></FCTable>
             </div>
@@ -76,7 +76,6 @@ class App extends Component {
               <Map data={data}></Map>
             </div>
             <MenuLayers />
-
             <FeatureDetails ></FeatureDetails>
           </Col>
         </Row>

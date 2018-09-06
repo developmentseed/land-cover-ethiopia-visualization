@@ -59,7 +59,6 @@ class ConnectedMap extends React.Component {
       });
 
       //Layers
-      // this.map.addLayer(sentinelStyle,'polygon');
       this.map.addLayer(polygonStyle);
       this.map.addLayer(LineStyle);
       this.map.addLayer(LineStyleHighlight);

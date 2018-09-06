@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { rasterLayersToDisplay } from './../config';
 import { selectLayer } from "../actions/index";
 
-
 const mapDispatchToProps = dispatch => {
     return {
         selectLayer: activeLayer => dispatch(selectLayer(activeLayer))
