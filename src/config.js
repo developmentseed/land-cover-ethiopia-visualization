@@ -6,9 +6,9 @@ export const mapConfig = {
 export const propertiesToDisplay = {
     "region": "Region",
     "woreda": "Woreda",
-    "totalProductionInvestor": "Investors area",
+    "totalProductionInvestor": "Investor production (ha)",
     "number_farms_OSM": "Num mapped farms",
-    "total_farms_area_OSM": "Area Mapped in OSM"
+    "total_farms_area_OSM": "Area mapped in OSM (ha)"
 };
 export const appTitle = 'Ethiopia woredas - Investors'
 
