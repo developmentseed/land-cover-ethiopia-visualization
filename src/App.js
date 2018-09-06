@@ -41,7 +41,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get(`https://gist.githubusercontent.com/Rub21/9d8546a6bc70d0de781cf22d20bd52ce/raw/b162c035b3f2f353a3f003122ccd0f34e93f7d40/woredas.geojson`)
+    axios.get(`https://gist.githubusercontent.com/karitotp/298a3193dc27b67518a0f1b84600f523/raw/ec9b4ea58504387c0f33ecf6876f95f6248f8139/woredas_investors.geojson`)
       .then(res => {
         this.setState({
           data: res.data, //Feture collection
