@@ -14,6 +14,12 @@ export const appTitle = 'Ethiopia woredas - Investors'
 
 export const rasterLayersToDisplay = [
     {
+        id: 'esri-world-imagery',
+        name: 'Esri World Imagery',
+        source: 'https://server.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+        status: true
+    },
+    {
         id: 'sentinel2017',
         name: 'Sentinel: 2017/05/01 - 2017/09/30',
         source: 'https://earthengine.googleapis.com/map/2c5f9592b08207ea74b10b4a156c5c6c/{z}/{x}/{y}?token=a771b3eb060d77a509dee1a2cfd779fb',
@@ -35,3 +41,5 @@ export const rasterLayersToDisplay = [
         status: false
     }
 ];
+
+
