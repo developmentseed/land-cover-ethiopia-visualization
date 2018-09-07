@@ -1,2 +1,2 @@
-export const SELECT_FEATURE = "SELECT_FEATURE";
-export const SELECT_LAYERS = "SELECT_LAYERS";
+export const SELECT_FEATURE = 'SELECT_FEATURE';
+export const SELECT_LAYERS = 'SELECT_LAYERS';

@@ -24,11 +24,15 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && gh-pages -d build"
+    "deploy": "npm run build && gh-pages -d build",
+    "format": "prettier --single-quote --write --print-width 120 ./src/**/*.js"
+
   },
   "devDependencies": {
     "gh-pages": "^1.2.0",
     "react-redux": "^5.0.7",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "prettier": "^1.8.2"
+
   }
 }

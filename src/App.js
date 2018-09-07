@@ -3,7 +3,6 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import axios from 'axios';
 
 // Local Components
 import FCTable from './components/FCTable'
@@ -11,19 +10,15 @@ import Map from './components/Map.js';
 import FeatureDetails from './components/FeatureDetails';
 // import ImportFromFile from './components/ImportFromFile';
 import MenuLayers from './components/MenuLayers';
-
 import { propertiesToDisplay, appTitle } from './config.js';
 import './App.css';
-
+import woredas from './data/woredas';
 class App extends Component {
   constructor() {
     super();
     this.state = {
       feature: null,
-      data: {
-        type: 'FeatureCollection',
-        features: []
-      }
+      data: woredas
     };
   }
 
@@ -35,21 +30,10 @@ class App extends Component {
 
   handleFeatureCollection = (data) => {
     this.setState({
-      data: data, 
+      data: data,
       feature: null
     })
   }
-
-  componentDidMount() {
-    axios.get(`https://gist.githubusercontent.com/karitotp/298a3193dc27b67518a0f1b84600f523/raw/ec9b4ea58504387c0f33ecf6876f95f6248f8139/woredas_investors.geojson`)
-      .then(res => {
-        this.setState({
-          data: res.data,
-          feature: null
-        })
-      })
-  }
-
 
   render() {
     const { data } = this.state;
@@ -60,8 +44,8 @@ class App extends Component {
             <AppBar position="static" color="default">
               <Toolbar>
                 <Typography color="inherit">
-                 {appTitle}
-              </Typography>
+                  {appTitle}
+                </Typography>
               </Toolbar>
             </AppBar>
             <div className='tableContent'>
