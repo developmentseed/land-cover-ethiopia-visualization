@@ -43,8 +43,9 @@ class ConnectedFCTable extends Component {
     return (
       <TableBody>
         {data.features.map(feature => {
+          let styleRow = feature.properties.investors.length > 0? 'styleRow' : '';
           return (
-            <TableRow key={uuidv1()} onClick={() => this.featureSelected(feature)}>
+            <TableRow className={styleRow} key={uuidv1()} onClick={() => this.featureSelected(feature)}>
               {renderColumn(headers, feature)}
             </TableRow>
           );

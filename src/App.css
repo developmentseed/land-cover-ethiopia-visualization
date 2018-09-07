@@ -44,6 +44,9 @@ td, th{
   padding: 4px 6px 4px 10px !important;
 }
 
+.styleRow{
+  background: #cecece;
+}
 /* Map content */
 .mapContent {
   max-height: 100% !important;
