@@ -1,14 +1,21 @@
 import React from 'react';
 import mapboxgl from 'mapbox-gl';
-import PropTypes from 'prop-types'
-import { connect } from "react-redux";
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { bbox, centroid, featureCollection } from '@turf/turf';
 import _ from 'underscore';
 import { mapConfig } from './../config';
-import { polygonStyle, LineStyle, LineStyleHighlight, textStyle, farmLandsStyleLine,farmLandsStylePolygon } from './../constants/mapStyle';
+import {
+  polygonStyle,
+  LineStyle,
+  LineStyleHighlight,
+  textStyle,
+  farmLandsStyleLine,
+  farmLandsStylePolygon
+} from './../constants/mapStyle';
 import { rasterLayersToDisplay } from './../config';
 
-mapboxgl.accessToken = mapConfig.accessToken
+mapboxgl.accessToken = mapConfig.accessToken;
 
 class ConnectedMap extends React.Component {
   map;
@@ -38,7 +45,7 @@ class ConnectedMap extends React.Component {
     });
   }
 
-  loadStyle = (data) => {
+  loadStyle = data => {
     if (this.map.getSource('geoFeatures')) {
       this.map.getSource('geoFeatures').setData(data);
     } else {
@@ -68,25 +75,26 @@ class ConnectedMap extends React.Component {
 
       for (let i = 0; i < rasterLayersToDisplay.length; i++) {
         const layer = rasterLayersToDisplay[i];
-        this.map.addLayer({
-          'id': layer.id,
-          'type': 'raster',
-          'source': {
-            'type': 'raster',
-            'tiles': [
-              layer.source
-            ],
-            'tileSize': 256
+        this.map.addLayer(
+          {
+            id: layer.id,
+            type: 'raster',
+            source: {
+              type: 'raster',
+              tiles: [layer.source],
+              tileSize: 256
+            },
+            paint: {}
           },
-          'paint': {}
-        }, 'polygons');
+          'polygons'
+        );
         if (!layer.status) {
           this.map.setLayoutProperty(layer.id, 'visibility', 'none');
         }
       }
     }
-  }
-  
+  };
+
   componentDidUpdate() {
     const { layerSelected, feature, data } = this.props;
     //zoom the feature, because the feature was clicked on the table
@@ -108,9 +116,7 @@ class ConnectedMap extends React.Component {
   }
 
   render() {
-    return (
-      <div ref={el => this.mapContainer = el} className='mapContent' />
-    );
+    return <div ref={el => (this.mapContainer = el)} className="mapContent" />;
   }
 }
 

@@ -1,4 +1,4 @@
-import { SELECT_FEATURE, SELECT_LAYERS } from "../constants/action-types";
+import { SELECT_FEATURE, SELECT_LAYERS } from '../constants/action-types';
 import _ from 'underscore';
 
 const initialState = {

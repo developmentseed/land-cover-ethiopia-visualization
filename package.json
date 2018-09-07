@@ -25,7 +25,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy": "npm run build && gh-pages -d build",
-    "format": "prettier --single-quote --write --print-width 120 \"{src}/**/*.js\""
+    "format": "prettier --single-quote --write --print-width 120 ./src/**/*.js"
 
   },
   "devDependencies": {
