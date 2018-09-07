@@ -97,10 +97,7 @@ class ConnectedMap extends React.Component {
       let point = centroid(feature, feature.properties);
       this.map.getSource('geoFeatures-labels').setData(featureCollection([point]));
     }
-    // display the layer
-    if (data) {
-      this.loadStyle(data);
-    }
+
     if (!_.isEmpty(layerSelected)) {
       if (layerSelected.status) {
         this.map.setLayoutProperty(layerSelected.id, 'visibility', 'visible');
