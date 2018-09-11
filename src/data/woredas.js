@@ -141,8 +141,8 @@ export default {
 			"elev_mean": 83.004196167,
 			"investors": [],
 			"numInvestors": 0,
-			"number_farms_OSM": "4",
-			"total_farms_area_OSM": "1539",
+			"number_farms_OSM": "5",
+			"total_farms_area_OSM": "2143",
 			"totalContractInvestor": 0
 		},
 		"geometry": {
@@ -243,8 +243,8 @@ export default {
 			"elev_mean": 1183.50939941,
 			"investors": [],
 			"numInvestors": 0,
-			"number_farms_OSM": "1",
-			"total_farms_area_OSM": "671",
+			"number_farms_OSM": "0",
+			"total_farms_area_OSM": "0",
 			"totalContractInvestor": 0
 		},
 		"geometry": {
@@ -820,7 +820,7 @@ export default {
 			}],
 			"numInvestors": 1,
 			"number_farms_OSM": "8",
-			"total_farms_area_OSM": "34356",
+			"total_farms_area_OSM": "34536",
 			"totalContractInvestor": 20000
 		},
 		"geometry": {
@@ -7474,7 +7474,7 @@ export default {
 				"crop": "Cereals (no specification), Oleagionous plant"
 			}],
 			"numInvestors": 1,
-			"number_farms_OSM": "6",
+			"number_farms_OSM": "5",
 			"total_farms_area_OSM": "33166",
 			"totalContractInvestor": 4000
 		},
@@ -15641,7 +15641,7 @@ export default {
 			"investors": [],
 			"numInvestors": 0,
 			"number_farms_OSM": "2",
-			"total_farms_area_OSM": "4343",
+			"total_farms_area_OSM": "2543",
 			"totalContractInvestor": 0
 		},
 		"geometry": {
@@ -18690,8 +18690,8 @@ export default {
 			"elev_mean": 1471.37658691,
 			"investors": [],
 			"numInvestors": 0,
-			"number_farms_OSM": "0",
-			"total_farms_area_OSM": "0",
+			"number_farms_OSM": "1",
+			"total_farms_area_OSM": "174",
 			"totalContractInvestor": 0
 		},
 		"geometry": {
@@ -22876,8 +22876,8 @@ export default {
 			"elev_mean": 1111.79614258,
 			"investors": [],
 			"numInvestors": 0,
-			"number_farms_OSM": "0",
-			"total_farms_area_OSM": "0",
+			"number_farms_OSM": "2",
+			"total_farms_area_OSM": "2487",
 			"totalContractInvestor": 0
 		},
 		"geometry": {
@@ -33687,12 +33687,6 @@ export default {
 			"woreda_area": 272436.87,
 			"elev_mean": 1261.11279297,
 			"investors": [{
-				"investor_name": "Ertale Bio Diesel PLC, Unnamed investor 178",
-				"intended_size": "50000",
-				"contract_size": "50000",
-				"production_size": "",
-				"crop": ""
-			}, {
 				"investor_name": "Kooy Bioflow B.V., Mekiya Agri Mechanization Service PLC",
 				"intended_size": "50000",
 				"contract_size": "200",
@@ -33710,10 +33704,16 @@ export default {
 				"contract_size": "2000",
 				"production_size": "",
 				"crop": "Barley, Corn (Maize), Cotton, Fodder Plants, Sesame, Wheat"
+			}, {
+				"investor_name": "Ertale Bio Diesel PLC, Unnamed investor 178",
+				"intended_size": "50000",
+				"contract_size": "50000",
+				"production_size": "",
+				"crop": ""
 			}],
 			"numInvestors": 4,
-			"number_farms_OSM": "3",
-			"total_farms_area_OSM": "3533",
+			"number_farms_OSM": "0",
+			"total_farms_area_OSM": "0",
 			"totalContractInvestor": 52700
 		},
 		"geometry": {
@@ -37285,6 +37285,30 @@ export default {
 			"woreda_area": 88223.48,
 			"elev_mean": 1444.11010742,
 			"investors": [{
+				"investor_name": "MIDROC Group",
+				"intended_size": "288",
+				"contract_size": "288",
+				"production_size": "288",
+				"crop": "Coffee Plant"
+			}, {
+				"investor_name": "Zeyoge's Agriculture and Industry PLC, Unnamed investor 163",
+				"intended_size": "300",
+				"contract_size": "300",
+				"production_size": "",
+				"crop": "Corn (Maize), Soya Beans"
+			}, {
+				"investor_name": "Global Agri-Development Company",
+				"intended_size": "500",
+				"contract_size": "500",
+				"production_size": "",
+				"crop": "Fruit, Vegetables"
+			}, {
+				"investor_name": "Al-Mehdi Group",
+				"intended_size": "1000",
+				"contract_size": "1000",
+				"production_size": "",
+				"crop": "Trees"
+			}, {
 				"investor_name": "Africa Ethiopia Biomass Energy PLC",
 				"intended_size": "2000",
 				"contract_size": "2000",
@@ -37297,29 +37321,11 @@ export default {
 				"production_size": "",
 				"crop": "Jatropha"
 			}, {
-				"investor_name": "Global Agri-Development Company",
-				"intended_size": "500",
-				"contract_size": "500",
-				"production_size": "",
-				"crop": "Fruit, Vegetables"
-			}, {
 				"investor_name": "Ozyak Oskodans Plc",
 				"intended_size": "10000",
 				"contract_size": "10000",
 				"production_size": "",
 				"crop": "Cereals (no specification), Oleagionous plant"
-			}, {
-				"investor_name": "Zeyoge's Agriculture and Industry PLC, Unnamed investor 163",
-				"intended_size": "300",
-				"contract_size": "300",
-				"production_size": "",
-				"crop": "Corn (Maize), Soya Beans"
-			}, {
-				"investor_name": "Al-Mehdi Group",
-				"intended_size": "1000",
-				"contract_size": "1000",
-				"production_size": "",
-				"crop": "Trees"
 			}, {
 				"investor_name": "Ayka, Omo Valley Farm Cooperation Plc",
 				"intended_size": "10000",
@@ -37332,12 +37338,6 @@ export default {
 				"contract_size": "10000",
 				"production_size": "",
 				"crop": "Tea"
-			}, {
-				"investor_name": "MIDROC Group",
-				"intended_size": "288",
-				"contract_size": "288",
-				"production_size": "288",
-				"crop": "Coffee Plant"
 			}],
 			"numInvestors": 9,
 			"number_farms_OSM": "0",
@@ -39383,8 +39383,8 @@ export default {
 			"elev_mean": 939.222839355,
 			"investors": [],
 			"numInvestors": 0,
-			"number_farms_OSM": "1",
-			"total_farms_area_OSM": "1206",
+			"number_farms_OSM": "0",
+			"total_farms_area_OSM": "0",
 			"totalContractInvestor": 0
 		},
 		"geometry": {
@@ -41071,8 +41071,8 @@ export default {
 			"elev_mean": 1171.97033691,
 			"investors": [],
 			"numInvestors": 0,
-			"number_farms_OSM": "2",
-			"total_farms_area_OSM": "3258",
+			"number_farms_OSM": "0",
+			"total_farms_area_OSM": "0",
 			"totalContractInvestor": 0
 		},
 		"geometry": {
@@ -43101,8 +43101,8 @@ export default {
 			"elev_mean": 422.891876221,
 			"investors": [],
 			"numInvestors": 0,
-			"number_farms_OSM": "1",
-			"total_farms_area_OSM": "1275",
+			"number_farms_OSM": "0",
+			"total_farms_area_OSM": "0",
 			"totalContractInvestor": 0
 		},
 		"geometry": {
@@ -43540,12 +43540,6 @@ export default {
 			"woreda_area": 345347.83,
 			"elev_mean": 836.782653809,
 			"investors": [{
-				"investor_name": "Ruchi Soya Industries",
-				"intended_size": "50000",
-				"contract_size": "25000",
-				"production_size": "1000",
-				"crop": "Corn (Maize), Pulses, Soya Beans"
-			}, {
 				"investor_name": "MIDROC Group",
 				"intended_size": "3000",
 				"contract_size": "3000",
@@ -43563,6 +43557,12 @@ export default {
 				"contract_size": "3000",
 				"production_size": "",
 				"crop": "Sesame, maize"
+			}, {
+				"investor_name": "Ruchi Soya Industries",
+				"intended_size": "50000",
+				"contract_size": "25000",
+				"production_size": "1000",
+				"crop": "Corn (Maize), Pulses, Soya Beans"
 			}],
 			"numInvestors": 4,
 			"number_farms_OSM": "10",
@@ -43866,35 +43866,11 @@ export default {
 			"woreda_area": 318445.97,
 			"elev_mean": 534.679321289,
 			"investors": [{
-				"investor_name": "Bharat Herbals & OIls (BHO)",
-				"intended_size": "100000",
-				"contract_size": "27000",
-				"production_size": "1000",
-				"crop": "Cereals (no specification), Corn (Maize), Cotton, Rice"
-			}, {
-				"investor_name": "MIDROC Group",
-				"intended_size": "500000",
-				"contract_size": "14000",
-				"production_size": "1800",
-				"crop": "Corn (Maize), Cotton, Rice, Sugar Cane, Sun Flower, Teff"
-			}, {
-				"investor_name": "Green Valley Agro Plc",
-				"intended_size": "5000",
-				"contract_size": "5000",
-				"production_size": "",
-				"crop": "Cotton"
-			}, {
 				"investor_name": "Alehilegn Worku",
 				"intended_size": "",
 				"contract_size": "2000",
 				"production_size": "",
 				"crop": "Cotton, sesame"
-			}, {
-				"investor_name": "Bazel",
-				"intended_size": "",
-				"contract_size": "10000",
-				"production_size": "",
-				"crop": "Cotton, sesame A"
 			}, {
 				"investor_name": "Fiker PLC",
 				"intended_size": "",
@@ -43914,23 +43890,47 @@ export default {
 				"production_size": "",
 				"crop": "Cotton, sesame"
 			}, {
-				"investor_name": "Saudi Star",
-				"intended_size": "",
-				"contract_size": "139000",
-				"production_size": "",
-				"crop": "Rice, soya"
-			}, {
 				"investor_name": "Solomon Kebede",
 				"intended_size": "",
 				"contract_size": "3000",
 				"production_size": "",
 				"crop": "Cotton, sesame"
 			}, {
+				"investor_name": "Green Valley Agro Plc",
+				"intended_size": "5000",
+				"contract_size": "5000",
+				"production_size": "",
+				"crop": "Cotton"
+			}, {
+				"investor_name": "Bazel",
+				"intended_size": "",
+				"contract_size": "10000",
+				"production_size": "",
+				"crop": "Cotton, sesame A"
+			}, {
 				"investor_name": "Basen Agriculture",
 				"intended_size": "",
 				"contract_size": "10000",
 				"production_size": "",
 				"crop": "Cotton, mango"
+			}, {
+				"investor_name": "MIDROC Group",
+				"intended_size": "500000",
+				"contract_size": "14000",
+				"production_size": "1800",
+				"crop": "Corn (Maize), Cotton, Rice, Sugar Cane, Sun Flower, Teff"
+			}, {
+				"investor_name": "Bharat Herbals & OIls (BHO)",
+				"intended_size": "100000",
+				"contract_size": "27000",
+				"production_size": "1000",
+				"crop": "Cereals (no specification), Corn (Maize), Cotton, Rice"
+			}, {
+				"investor_name": "Saudi Star",
+				"intended_size": "",
+				"contract_size": "139000",
+				"production_size": "",
+				"crop": "Rice, soya"
 			}],
 			"numInvestors": 11,
 			"number_farms_OSM": "4",
@@ -44073,17 +44073,17 @@ export default {
 			"woreda_area": 329870.8,
 			"elev_mean": 474.408294678,
 			"investors": [{
-				"investor_name": "Saudi Star",
-				"intended_size": "",
-				"contract_size": "139000",
-				"production_size": "",
-				"crop": "Rice, soya"
-			}, {
 				"investor_name": "Ruchi Soya",
 				"intended_size": "",
 				"contract_size": "25000",
 				"production_size": "",
 				"crop": "Soya, palm oil"
+			}, {
+				"investor_name": "Saudi Star",
+				"intended_size": "",
+				"contract_size": "139000",
+				"production_size": "",
+				"crop": "Rice, soya"
 			}],
 			"numInvestors": 2,
 			"number_farms_OSM": "4",
@@ -44302,29 +44302,29 @@ export default {
 			"woreda_area": 178590.89,
 			"elev_mean": 988.04309082,
 			"investors": [{
-				"investor_name": "Verdanta Harvests Private Ltd.",
-				"intended_size": "3012",
-				"contract_size": "3012",
-				"production_size": "70",
-				"crop": "Coffee Plant, Eucalyptus, Tea"
-			}, {
-				"investor_name": "Karuturi",
-				"intended_size": "",
-				"contract_size": "11000",
-				"production_size": "",
-				"crop": "Rice, Biofuel"
-			}, {
 				"investor_name": "United Farm Bus",
 				"intended_size": "",
 				"contract_size": "3000",
 				"production_size": "",
 				"crop": "Food crops"
 			}, {
+				"investor_name": "Verdanta Harvests Private Ltd.",
+				"intended_size": "3012",
+				"contract_size": "3012",
+				"production_size": "70",
+				"crop": "Coffee Plant, Eucalyptus, Tea"
+			}, {
 				"investor_name": "Romton Agri plc",
 				"intended_size": "",
 				"contract_size": "10000",
 				"production_size": "",
 				"crop": "tomatoes"
+			}, {
+				"investor_name": "Karuturi",
+				"intended_size": "",
+				"contract_size": "11000",
+				"production_size": "",
+				"crop": "Rice, Biofuel"
 			}, {
 				"investor_name": "Emami Biotech",
 				"intended_size": "",
@@ -48032,15 +48032,15 @@ export default {
 			"woreda_area": 717973.08,
 			"elev_mean": 1068.47375488,
 			"investors": [{
-				"investor_name": "Sun Biofuels, National Biodiesel Corporation",
-				"intended_size": "80000",
-				"contract_size": "80000",
-				"production_size": "",
-				"crop": "Jatropha"
-			}, {
 				"investor_name": "Ardent Energy Group, Praj Industries Ltd",
 				"intended_size": "15000",
 				"contract_size": "200",
+				"production_size": "",
+				"crop": "Jatropha"
+			}, {
+				"investor_name": "Sun Biofuels, National Biodiesel Corporation",
+				"intended_size": "80000",
+				"contract_size": "80000",
 				"production_size": "",
 				"crop": "Jatropha"
 			}],
@@ -48902,37 +48902,6 @@ export default {
 						[35.71935447929903, 9.885077614098376],
 						[35.736711347231406, 9.87384565611601],
 						[35.75789915345647, 9.862649285523904]
-					]
-				]
-			]
-		}
-	}, {
-		"type": "Feature",
-		"properties": {
-			"OBJECTID": 122,
-			"region": "Beneshangul Gumu",
-			"woreda": "Bio Jiganifado",
-			"woreda_id": 9960405,
-			"woreda_area": 1917.07,
-			"elev_mean": 1221.56665039,
-			"investors": [],
-			"numInvestors": 0,
-			"totalContractInvestor": 0
-		},
-		"geometry": {
-			"type": "MultiPolygon",
-			"coordinates": [
-				[
-					[
-						[36.223439763018185, 8.951990211394037],
-						[36.1881698756694, 8.969148106138256],
-						[36.185709768296924, 8.971577385992552],
-						[36.185149767531975, 8.973357391339576],
-						[36.17429321140344, 8.97942299539496],
-						[36.17899102574186, 8.986317244665866],
-						[36.2210390989647, 8.98853736465117],
-						[36.247921820747486, 8.973530551948768],
-						[36.223439763018185, 8.951990211394037]
 					]
 				]
 			]
@@ -49912,16 +49881,16 @@ export default {
 				"production_size": "",
 				"crop": ""
 			}, {
-				"investor_name": "Lucci Agriculture",
-				"intended_size": "",
-				"contract_size": "4003",
-				"production_size": "420",
-				"crop": "Cotton"
-			}, {
 				"investor_name": "Tsegaye Demoz",
 				"intended_size": "",
 				"contract_size": "1000",
 				"production_size": "158",
+				"crop": "Cotton"
+			}, {
+				"investor_name": "Lucci Agriculture",
+				"intended_size": "",
+				"contract_size": "4003",
+				"production_size": "420",
 				"crop": "Cotton"
 			}],
 			"numInvestors": 3,
@@ -53588,8 +53557,8 @@ export default {
 			"elev_mean": 1244.32299805,
 			"investors": [],
 			"numInvestors": 0,
-			"number_farms_OSM": "2",
-			"total_farms_area_OSM": "1576",
+			"number_farms_OSM": "0",
+			"total_farms_area_OSM": "0",
 			"totalContractInvestor": 0
 		},
 		"geometry": {
@@ -55213,8 +55182,8 @@ export default {
 			"elev_mean": 1495.61376953,
 			"investors": [],
 			"numInvestors": 0,
-			"number_farms_OSM": "1",
-			"total_farms_area_OSM": "1765",
+			"number_farms_OSM": "0",
+			"total_farms_area_OSM": "0",
 			"totalContractInvestor": 0
 		},
 		"geometry": {
@@ -55828,8 +55797,8 @@ export default {
 			"elev_mean": 1249.55175781,
 			"investors": [],
 			"numInvestors": 0,
-			"number_farms_OSM": "3",
-			"total_farms_area_OSM": "3031",
+			"number_farms_OSM": "0",
+			"total_farms_area_OSM": "0",
 			"totalContractInvestor": 0
 		},
 		"geometry": {
@@ -56189,17 +56158,17 @@ export default {
 			"woreda_area": 1162707.12,
 			"elev_mean": 1005.11730957,
 			"investors": [{
-				"investor_name": "Longping High-Tech, Ershisanye Construction Group",
-				"intended_size": "25000",
-				"contract_size": "25000",
-				"production_size": "",
-				"crop": "Sugar Cane"
-			}, {
 				"investor_name": "JVL Agro Industries Ltd",
 				"intended_size": "5000",
 				"contract_size": "5000",
 				"production_size": "",
 				"crop": "Cotton"
+			}, {
+				"investor_name": "Longping High-Tech, Ershisanye Construction Group",
+				"intended_size": "25000",
+				"contract_size": "25000",
+				"production_size": "",
+				"crop": "Sugar Cane"
 			}, {
 				"investor_name": "Saber Group",
 				"intended_size": "25000",
@@ -56495,6 +56464,8 @@ export default {
 			"elev_mean": 1137.76538086,
 			"investors": [],
 			"numInvestors": 0,
+			"number_farms_OSM": "0",
+			"total_farms_area_OSM": "0",
 			"totalContractInvestor": 0
 		},
 		"geometry": {
@@ -58972,8 +58943,8 @@ export default {
 			"elev_mean": 1319.96594238,
 			"investors": [],
 			"numInvestors": 0,
-			"number_farms_OSM": "1",
-			"total_farms_area_OSM": "536",
+			"number_farms_OSM": "0",
+			"total_farms_area_OSM": "0",
 			"totalContractInvestor": 0
 		},
 		"geometry": {
@@ -62730,8 +62701,8 @@ export default {
 			"elev_mean": 737.328979492,
 			"investors": [],
 			"numInvestors": 0,
-			"number_farms_OSM": "1",
-			"total_farms_area_OSM": "151",
+			"number_farms_OSM": "0",
+			"total_farms_area_OSM": "0",
 			"totalContractInvestor": 0
 		},
 		"geometry": {
@@ -67507,6 +67478,8 @@ export default {
 			"elev_mean": 1064.92712402,
 			"investors": [],
 			"numInvestors": 0,
+			"number_farms_OSM": "0",
+			"total_farms_area_OSM": "0",
 			"totalContractInvestor": 0
 		},
 		"geometry": {
@@ -70951,8 +70924,8 @@ export default {
 			"elev_mean": 1479.5994873,
 			"investors": [],
 			"numInvestors": 0,
-			"number_farms_OSM": "2",
-			"total_farms_area_OSM": "16825",
+			"number_farms_OSM": "1",
+			"total_farms_area_OSM": "177",
 			"totalContractInvestor": 0
 		},
 		"geometry": {
@@ -71364,8 +71337,8 @@ export default {
 			"elev_mean": 1183.5012207,
 			"investors": [],
 			"numInvestors": 0,
-			"number_farms_OSM": "1",
-			"total_farms_area_OSM": "701",
+			"number_farms_OSM": "0",
+			"total_farms_area_OSM": "0",
 			"totalContractInvestor": 0
 		},
 		"geometry": {
