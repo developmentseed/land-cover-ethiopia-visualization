@@ -22,25 +22,24 @@ export const rasterLayersToDisplay = [
     {
         id: 'date-2018-05-01-2018-08-04',
         name: 'Sentinel: 2018/05/01 - 2018/08/04',
-        source: 'https://earthengine.googleapis.com/map/8c4bed5c9ba4f9e76fb51cc237829947/{z}/{x}/{y}?token=a4ad8f478187192a746826911c027c2e',
+        source: 'https://earthengine.googleapis.com/map/3cdac91cbde6a862fff4ac821fa8b938/{zoom}/{x}/{y}?token=cb6a76367f4b74762121694092301df5',
         status: false
     },
     {
         id: 'sentinelMiddle',
         name: ' Sentinel: 2017/11/01 - 2018/03/31',
-        source: 'https://earthengine.googleapis.com/map/e950e9ad1a1f27ea2a42f3140555aa33/{z}/{x}/{y}?token=e2b549d6345b9c11090710af3a4e48b0',
+        source: 'https://earthengine.googleapis.com/map/64afac248dfaf39b0f68266907599989/{zoom}/{x}/{y}?token=65a4f6ee0e031b17a8e08845ee2a2b6c',
         status: false
     },
     {
         id: 'sentinel2017',
         name: 'Sentinel: 2017/05/01 - 2017/09/30',
-        source: 'https://earthengine.googleapis.com/map/dc1ff7810d4f81e7ea0dba92a7bbf2b5/{z}/{x}/{y}?token=54e20ccfd952ce863fe7a9963633dc3e',
-
+        source: 'https://earthengine.googleapis.com/map/ce649abdce2dd9fd5c43d417e2a1d460/{zoom}/{x}/{y}?token=aa94b4d8a85ae14a276f852c1dcfd819',
         status: false
     },{
         id: 'sentinel2016',
         name: 'Sentinel: 2016/06/01 - 2016/09/30',
-        source: 'https://earthengine.googleapis.com/map/7273432b9010f209a6d0fa312c287019/{z}/{x}/{y}?token=08c830f1bccb77c327daf2e146cee8f1',
+        source: 'https://earthengine.googleapis.com/map/ce649abdce2dd9fd5c43d417e2a1d460/{zoom}/{x}/{y}?token=aa94b4d8a85ae14a276f852c1dcfd819',
         status: false
     }
 ];
